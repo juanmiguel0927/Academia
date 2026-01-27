@@ -34,7 +34,7 @@
 
         .hero-bg {
             background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), 
-                        url('https://images.unsplash.com/photo-1550291652-6ea9114a47b1?auto=format&fit=crop&w=2000') no-repeat center center/cover;
+                        url('https://images.unsplash.com/photo-1550291652-6ea9114a47b1?auto=format&fit=crop&q=80&w=2000') no-repeat center center/cover;
             background-attachment: fixed;
         }
 
@@ -91,6 +91,15 @@
             border-color: var(--secondary-gold);
             box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
             outline: none;
+        }
+        
+        .full-article-view {
+            animation: slideUp 0.4s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -196,40 +205,37 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Grupo Armonía -->
-                    <div class="grid-card p-10 rounded-[2rem] flex flex-col">
+                    <div class="grid-card p-10 rounded-[2rem] flex flex-col text-center">
                         <div class="text-amber-500 text-3xl mb-6">🎹</div>
                         <h3 class="text-xl font-black mb-6 uppercase">Armonía Especializada</h3>
-                        <ul class="space-y-3 text-slate-600 font-medium flex-grow">
-                            <li class="flex items-center"><span class="w-2 h-2 bg-amber-500 rounded-full mr-3"></span> Armonía de Jazz</li>
-                            <li class="flex items-center"><span class="w-2 h-2 bg-amber-500 rounded-full mr-3"></span> Armonía Tradicional</li>
-                            <li class="flex items-center"><span class="w-2 h-2 bg-amber-500 rounded-full mr-3"></span> Armonía Modal</li>
+                        <ul class="space-y-3 text-slate-600 font-medium flex-grow mb-8">
+                            <li>Armonía de Jazz</li>
+                            <li>Armonía Tradicional</li>
+                            <li>Armonía Modal</li>
                         </ul>
-                        <button onclick="scrollToContact()" class="mt-8 w-full py-4 border-2 border-slate-900 text-slate-900 font-black rounded-2xl hover:bg-slate-900 hover:text-white transition-all uppercase text-[10px] tracking-widest">Consultar</button>
+                        <button onclick="scrollToContact()" class="w-full py-4 border-2 border-slate-900 text-slate-900 font-black rounded-2xl hover:bg-slate-900 hover:text-white transition-all uppercase text-[10px] tracking-widest">Consultar</button>
                     </div>
 
-                    <!-- Grupo Creación -->
-                    <div class="grid-card p-10 rounded-[2rem] border-2 border-amber-500 shadow-2xl scale-105 flex flex-col bg-slate-900 text-white">
+                    <div class="grid-card p-10 rounded-[2rem] border-2 border-amber-500 shadow-2xl scale-105 flex flex-col bg-slate-900 text-white text-center">
                         <div class="text-amber-500 text-3xl mb-6">✍️</div>
                         <h3 class="text-xl font-black mb-6 uppercase">Creación & Técnica</h3>
-                        <ul class="space-y-3 text-slate-300 font-medium flex-grow">
-                            <li class="flex items-center"><span class="w-2 h-2 bg-amber-500 rounded-full mr-3"></span> Composición</li>
-                            <li class="flex items-center"><span class="w-2 h-2 bg-amber-500 rounded-full mr-3"></span> Guitarra y Técnica</li>
-                            <li class="flex items-center"><span class="w-2 h-2 bg-amber-500 rounded-full mr-3"></span> Teoría Musical</li>
+                        <ul class="space-y-3 text-slate-300 font-medium flex-grow mb-8">
+                            <li>Composición</li>
+                            <li>Guitarra y Técnica</li>
+                            <li>Teoría Musical</li>
                         </ul>
-                        <button onclick="scrollToContact()" class="mt-8 w-full bg-amber-500 text-white font-black py-4 rounded-2xl hover:brightness-110 transition-all uppercase text-[10px] tracking-widest">Inscribirse</button>
+                        <button onclick="scrollToContact()" class="w-full bg-amber-500 text-white font-black py-4 rounded-2xl hover:brightness-110 transition-all uppercase text-[10px] tracking-widest">Inscribirse</button>
                     </div>
 
-                    <!-- Grupo Universitario -->
-                    <div class="grid-card p-10 rounded-[2rem] flex flex-col">
+                    <div class="grid-card p-10 rounded-[2rem] flex flex-col text-center">
                         <div class="text-amber-500 text-3xl mb-6">🎓</div>
                         <h3 class="text-xl font-black mb-6 uppercase">Éxito Universitario</h3>
-                        <ul class="space-y-3 text-slate-600 font-medium flex-grow">
-                            <li class="flex items-center"><span class="w-2 h-2 bg-amber-500 rounded-full mr-3"></span> Preparación Examen Entrada</li>
-                            <li class="flex items-center"><span class="w-2 h-2 bg-amber-500 rounded-full mr-3"></span> Pre Universitario</li>
-                            <li class="flex items-center"><span class="w-2 h-2 bg-amber-500 rounded-full mr-3"></span> Asesoría de Refuerzo</li>
+                        <ul class="space-y-3 text-slate-600 font-medium flex-grow mb-8">
+                            <li>Preparación Examen Entrada</li>
+                            <li>Pre Universitario</li>
+                            <li>Asesoría de Refuerzo</li>
                         </ul>
-                        <button onclick="scrollToContact()" class="mt-8 w-full py-4 border-2 border-slate-900 text-slate-900 font-black rounded-2xl hover:bg-slate-900 hover:text-white transition-all uppercase text-[10px] tracking-widest">Más Info</button>
+                        <button onclick="scrollToContact()" class="mt-auto w-full py-4 border-2 border-slate-900 text-slate-900 font-black rounded-2xl hover:bg-slate-900 hover:text-white transition-all uppercase text-[10px] tracking-widest">Más Info</button>
                     </div>
                 </div>
             </div>
@@ -237,84 +243,100 @@
 
         <!-- SECCIÓN: ARTÍCULOS -->
         <div id="page-articulos" class="page-content hidden py-24">
-            <div class="container mx-auto max-w-5xl px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-black mb-4">Biblioteca de Conocimiento</h2>
-                    <p class="text-slate-500 max-w-2xl mx-auto uppercase tracking-widest text-xs font-bold">Lecciones Base y Análisis Especializado</p>
-                </div>
+            <div class="container mx-auto max-w-6xl px-4">
                 
-                <div class="flex flex-col lg:flex-row gap-12">
-                    <aside class="lg:w-1/3">
-                        <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 space-y-2 sticky top-28">
-                            <button onclick="filterArticleCategory('armonia')" class="article-category-btn w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between active" id="btn-cat-armonia">
-                                <span>🎹 Armonía</span> <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"></path></svg>
-                            </button>
-                            <button onclick="filterArticleCategory('contrapunto')" class="article-category-btn w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between" id="btn-cat-contrapunto">
-                                <span>🎼 Contrapunto</span> <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"></path></svg>
-                            </button>
-                            <button onclick="filterArticleCategory('analisis')" class="article-category-btn w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between" id="btn-cat-analisis">
-                                <span>🔍 Análisis</span> <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"></path></svg>
-                            </button>
-                            <button onclick="filterArticleCategory('composicion')" class="article-category-btn w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between" id="btn-cat-composicion">
-                                <span>✍️ Composición</span> <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"></path></svg>
-                            </button>
-                        </div>
-                    </aside>
+                <!-- Vista de Lista (Tree Structure) -->
+                <div id="article-main-view">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl font-black mb-4">Biblioteca de Conocimiento</h2>
+                        <p class="text-slate-500 max-w-2xl mx-auto uppercase tracking-widest text-xs font-bold">Lecciones Base y Análisis Especializado</p>
+                    </div>
+                    
+                    <div class="flex flex-col lg:flex-row gap-12">
+                        <aside class="lg:w-1/3">
+                            <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 space-y-2 sticky top-28">
+                                <button onclick="filterArticleCategory('armonia')" class="article-category-btn w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between active" id="btn-cat-armonia">
+                                    <span>🎹 Armonía</span> <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"></path></svg>
+                                </button>
+                                <button onclick="filterArticleCategory('contrapunto')" class="article-category-btn w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between" id="btn-cat-contrapunto">
+                                    <span>🎼 Contrapunto</span> <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"></path></svg>
+                                </button>
+                                <button onclick="filterArticleCategory('analisis')" class="article-category-btn w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between" id="btn-cat-analisis">
+                                    <span>🔍 Análisis</span> <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"></path></svg>
+                                </button>
+                                <button onclick="filterArticleCategory('composicion')" class="article-category-btn w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between" id="btn-cat-composicion">
+                                    <span>✍️ Composición</span> <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"></path></svg>
+                                </button>
+                            </div>
+                        </aside>
 
-                    <div class="lg:w-2/3">
-                        <div id="article-tree-container" class="space-y-4">
-                            <div class="article-group" id="group-armonia">
-                                <div class="bg-white border rounded-2xl overflow-hidden mb-4">
-                                    <button class="flex justify-between items-center w-full p-6 text-left font-black text-slate-800" onclick="toggleArticleTree(this)">
-                                        Tema Base: El Sistema Tonal Moderno
-                                        <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                    </button>
-                                    <div class="article-content-body">
-                                        <div class="p-8 pt-0 text-slate-600 border-t border-slate-50 leading-relaxed">
-                                            <p class="mb-4">Este artículo introduce los conceptos fundamentales de la armonía funcional, desde la formación de tríadas hasta el uso de tensiones...</p>
-                                            <a href="#" class="text-amber-600 font-bold uppercase text-xs tracking-widest hover:underline">Continuar leyendo →</a>
+                        <div class="lg:w-2/3">
+                            <div id="article-tree-container" class="space-y-4">
+                                <!-- Armonia Group -->
+                                <div class="article-group" id="group-armonia">
+                                    <div class="bg-white border rounded-2xl overflow-hidden mb-4 shadow-sm hover:shadow-md transition-shadow">
+                                        <button class="flex justify-between items-center w-full p-6 text-left font-black text-slate-800" onclick="toggleArticleTree(this)">
+                                            Tema Base: El Sistema Tonal Moderno
+                                            <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                        </button>
+                                        <div class="article-content-body">
+                                            <div class="p-8 pt-0 text-slate-600 border-t border-slate-50 leading-relaxed">
+                                                <p class="mb-4">Este artículo introduce los conceptos fundamentales de la armonía funcional, desde la formación de tríadas hasta el uso de tensiones...</p>
+                                                <button onclick="readFullArticle('armonia-base')" class="text-amber-600 font-bold uppercase text-xs tracking-widest hover:underline flex items-center">
+                                                    Continuar leyendo <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="article-group hidden" id="group-contrapunto">
-                                <div class="bg-white border rounded-2xl overflow-hidden mb-4">
-                                    <button class="flex justify-between items-center w-full p-6 text-left font-black text-slate-800" onclick="toggleArticleTree(this)">
-                                        Tema Base: La Primera Especie
-                                        <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                    </button>
-                                    <div class="article-content-body">
-                                        <div class="p-8 pt-0 text-slate-600 border-t border-slate-50 leading-relaxed">
-                                            <p class="mb-4">Introducción al contrapunto nota contra nota. Reglas de intervalos consonantes y movimiento de voces...</p>
-                                            <a href="#" class="text-amber-600 font-bold uppercase text-xs tracking-widest hover:underline">Continuar leyendo →</a>
+                                <!-- Contrapunto Group -->
+                                <div class="article-group hidden" id="group-contrapunto">
+                                    <div class="bg-white border rounded-2xl overflow-hidden mb-4 shadow-sm hover:shadow-md transition-shadow">
+                                        <button class="flex justify-between items-center w-full p-6 text-left font-black text-slate-800" onclick="toggleArticleTree(this)">
+                                            Tema Base: La Primera Especie
+                                            <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                        </button>
+                                        <div class="article-content-body">
+                                            <div class="p-8 pt-0 text-slate-600 border-t border-slate-50 leading-relaxed">
+                                                <p class="mb-4">Introducción al contrapunto nota contra nota. Reglas de intervalos consonantes y movimiento de voces...</p>
+                                                <button onclick="readFullArticle('contrapunto-base')" class="text-amber-600 font-bold uppercase text-xs tracking-widest hover:underline flex items-center">
+                                                    Continuar leyendo <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="article-group hidden" id="group-analisis">
-                                <div class="bg-white border rounded-2xl overflow-hidden mb-4">
-                                    <button class="flex justify-between items-center w-full p-6 text-left font-black text-slate-800" onclick="toggleArticleTree(this)">
-                                        Tema Base: Análisis de la Forma Sonata
-                                        <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                    </button>
-                                    <div class="article-content-body">
-                                        <div class="p-8 pt-0 text-slate-600 border-t border-slate-50 leading-relaxed">
-                                            <p class="mb-4">Desglose estructural de la forma más importante del periodo clásico: Exposición, Desarrollo y Reexposición...</p>
-                                            <a href="#" class="text-amber-600 font-bold uppercase text-xs tracking-widest hover:underline">Continuar leyendo →</a>
+                                <!-- Analisis Group -->
+                                <div class="article-group hidden" id="group-analisis">
+                                    <div class="bg-white border rounded-2xl overflow-hidden mb-4 shadow-sm hover:shadow-md transition-shadow">
+                                        <button class="flex justify-between items-center w-full p-6 text-left font-black text-slate-800" onclick="toggleArticleTree(this)">
+                                            Tema Base: Análisis de la Forma Sonata
+                                            <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                        </button>
+                                        <div class="article-content-body">
+                                            <div class="p-8 pt-0 text-slate-600 border-t border-slate-50 leading-relaxed">
+                                                <p class="mb-4">Desglose estructural de la forma más importante del periodo clásico: Exposición, Desarrollo y Reexposición...</p>
+                                                <button onclick="readFullArticle('analisis-base')" class="text-amber-600 font-bold uppercase text-xs tracking-widest hover:underline flex items-center">
+                                                    Continuar leyendo <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="article-group hidden" id="group-composicion">
-                                <div class="bg-white border rounded-2xl overflow-hidden mb-4">
-                                    <button class="flex justify-between items-center w-full p-6 text-left font-black text-slate-800" onclick="toggleArticleTree(this)">
-                                        Tema Base: El Desarrollo Motívico
-                                        <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                    </button>
-                                    <div class="article-content-body">
-                                        <div class="p-8 pt-0 text-slate-600 border-t border-slate-50 leading-relaxed">
-                                            <p class="mb-4">Técnicas fundamentales para transformar una célula melódica en una obra completa...</p>
-                                            <a href="#" class="text-amber-600 font-bold uppercase text-xs tracking-widest hover:underline">Continuar leyendo →</a>
+                                <!-- Composicion Group -->
+                                <div class="article-group hidden" id="group-composicion">
+                                    <div class="bg-white border rounded-2xl overflow-hidden mb-4 shadow-sm hover:shadow-md transition-shadow">
+                                        <button class="flex justify-between items-center w-full p-6 text-left font-black text-slate-800" onclick="toggleArticleTree(this)">
+                                            Tema Base: El Desarrollo Motívico
+                                            <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                        </button>
+                                        <div class="article-content-body">
+                                            <div class="p-8 pt-0 text-slate-600 border-t border-slate-50 leading-relaxed">
+                                                <p class="mb-4">Técnicas fundamentales para transformar una célula melódica en una obra completa...</p>
+                                                <button onclick="readFullArticle('composicion-base')" class="text-amber-600 font-bold uppercase text-xs tracking-widest hover:underline flex items-center">
+                                                    Continuar leyendo <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -322,6 +344,19 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- SECCIÓN: DETALLE DE ARTÍCULO (Vista Completa) -->
+                <div id="article-detail-view" class="hidden max-w-4xl mx-auto full-article-view">
+                    <button onclick="closeFullArticle()" class="mb-8 flex items-center text-slate-400 font-bold uppercase text-xs tracking-widest hover:text-amber-600 transition-colors">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Regresar a la biblioteca
+                    </button>
+                    
+                    <div id="full-article-content" class="bg-white rounded-[2.5rem] shadow-2xl p-10 md:p-16 border border-slate-100">
+                        <!-- El contenido se inyecta aquí vía JS -->
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -398,6 +433,49 @@
     </footer>
 
     <script>
+        // CONTENIDOS COMPLETOS DE ARTÍCULOS
+        const fullArticlesContent = {
+            'armonia-base': `
+                <h1 class="text-4xl font-black text-slate-900 mb-6">El Sistema Tonal Moderno: Una Introducción</h1>
+                <div class="prose prose-slate max-w-none text-slate-600 text-lg space-y-6">
+                    <p>La armonía tonal es el pilar de la música occidental de los últimos tres siglos. Se basa en la jerarquía de las notas dentro de una escala y la relación de tensión y reposo entre sus grados.</p>
+                    <h2 class="text-2xl font-black text-slate-800 mt-8">1. Los Pilares: Tónica, Subdominante y Dominante</h2>
+                    <p>Todo movimiento armónico busca regresar a casa. La <strong>Tónica (I)</strong> es el reposo absoluto. La <strong>Dominante (V)</strong> es la máxima tensión que pide resolución, y la <strong>Subdominante (IV)</strong> es el punto medio, el alejamiento.</p>
+                    <h2 class="text-2xl font-black text-slate-800 mt-8">2. La Formación de Tríadas</h2>
+                    <p>Entender cómo se construyen los acordes por terceras superpuestas es vital. Una tríada mayor suena estable y brillante; una menor ofrece una sonoridad más introspectiva. El dominio de estas estructuras permite navegar cualquier obra con claridad analítica.</p>
+                    <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 italic my-8">
+                        "El análisis no es solo ponerle nombre a los acordes, es entender por qué el compositor eligió ese camino sonoro."
+                    </div>
+                </div>
+            `,
+            'contrapunto-base': `
+                <h1 class="text-4xl font-black text-slate-900 mb-6">La Primera Especie: Nota contra Nota</h1>
+                <div class="prose prose-slate max-w-none text-slate-600 text-lg space-y-6">
+                    <p>El contrapunto es el arte de escribir líneas melódicas que funcionan de manera independiente pero armoniosa al mismo tiempo. La Primera Especie es la base fundamental de este estudio.</p>
+                    <h2 class="text-2xl font-black text-slate-800 mt-8">1. Intervalos Consonantes</h2>
+                    <p>En esta especie, solo utilizamos intervalos de tercera, sexta, quinta justa y octava. Evitamos las disonancias (segundas, séptimas, tritono) para enfocarnos en la estabilidad sonora inicial.</p>
+                    <h2 class="text-2xl font-black text-slate-800 mt-8">2. Movimiento de las Voces</h2>
+                    <p>El movimiento contrario es nuestro mejor aliado. Si una voz sube, la otra debería bajar o mantenerse. Esto asegura que ambas líneas tengan personalidad propia y no parezcan una simple duplicación.</p>
+                </div>
+            `,
+            'analisis-base': `
+                <h1 class="text-4xl font-black text-slate-900 mb-6">Análisis Estructural: La Forma Sonata</h1>
+                <div class="prose prose-slate max-w-none text-slate-600 text-lg space-y-6">
+                    <p>La forma sonata es quizás la estructura más sofisticada del periodo clásico. No es solo un molde, es un drama musical dividido en tres grandes actos.</p>
+                    <h2 class="text-2xl font-black text-slate-800 mt-8">Exposición, Desarrollo y Reexposición</h2>
+                    <p>En la <strong>Exposición</strong>, presentamos los temas principales en dos tonalidades contrastantes. En el <strong>Desarrollo</strong>, el compositor pone a prueba estos temas, fragmentándolos y modulando constantemente. Finalmente, en la <strong>Reexposición</strong>, el drama se resuelve regresando a la tonalidad de origen.</p>
+                </div>
+            `,
+            'composicion-base': `
+                <h1 class="text-4xl font-black text-slate-900 mb-6">El Motivo como Célula Generadora</h1>
+                <div class="prose prose-slate max-w-none text-slate-600 text-lg space-y-6">
+                    <p>Componer no es esperar a que llegue la inspiración completa. Es tomar una pequeña idea —un motivo— y saber cómo expandirla.</p>
+                    <h2 class="text-2xl font-black text-slate-800 mt-8">Técnicas de Variación</h2>
+                    <p>Podemos transformar un motivo mediante la <strong>Inversión</strong> (espejo de los intervalos), la <strong>Retrogradación</strong> (tocarlo de atrás hacia adelante) o la <strong>Aumentación</strong> (alargar las duraciones). Estas herramientas nos permiten crear coherencia y unidad en una obra extensa.</p>
+                </div>
+            `
+        };
+
         const resourcesData = {
             "Teoría & Composición": [
                 { title: "Bloques Armónicos", url: "https://juanmiguel0927.github.io/BloqueArmonicoPro/", desc: "Técnica 4-way closed para construcción de acordes.", icon: "🧠" },
@@ -446,7 +524,30 @@
             document.getElementById('page-' + pageId).classList.remove('hidden');
             document.querySelectorAll('.main-nav-link').forEach(l => l.classList.remove('active'));
             document.getElementById('btn-' + pageId)?.classList.add('active');
+            
+            // Si entramos a artículos, nos aseguramos de que no esté en modo detalle
+            if (pageId === 'articulos') closeFullArticle();
+            
             window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // Lógica de Artículos Detallados
+        function readFullArticle(articleId) {
+            const detailView = document.getElementById('article-detail-view');
+            const mainView = document.getElementById('article-main-view');
+            const contentContainer = document.getElementById('full-article-content');
+            
+            if (fullArticlesContent[articleId]) {
+                contentContainer.innerHTML = fullArticlesContent[articleId];
+                mainView.classList.add('hidden');
+                detailView.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function closeFullArticle() {
+            document.getElementById('article-main-view').classList.remove('hidden');
+            document.getElementById('article-detail-view').classList.add('hidden');
         }
 
         function toggleArticleTree(btn) {
@@ -460,6 +561,7 @@
             document.getElementById('btn-cat-' + cat)?.classList.add('bg-slate-900', 'text-white');
             document.querySelectorAll('.article-group').forEach(g => g.classList.add('hidden'));
             document.getElementById('group-' + cat)?.classList.remove('hidden');
+            closeFullArticle(); // Reset view when changing category
         }
 
         function scrollToContact() {
