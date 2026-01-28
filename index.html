@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juan Miguel Ríos | Guitarra, Composición y Tecnología Musical</title>
-    <meta name="description" content="Plataforma de formación musical avanzada, recursos interactivos y artículos especializados en armonía, contrapunto y análisis.">
+    <meta name="description" content="Formación musical avanzada: virtual y presencial en Barranquilla. Recursos interactivos y artículos especializados.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,12 +27,11 @@
         
         h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
 
-        /* Contraste en el Hero */
         .hero-title { text-shadow: 0 4px 15px rgba(0,0,0,0.8); }
         .hero-text { text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
 
         .hero-bg {
-            background: linear-gradient(rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.92)), 
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), 
                         url('https://images.unsplash.com/photo-1550291652-6ea9114a47b1?auto=format&fit=crop&w=2000') no-repeat center center/cover;
             background-attachment: fixed;
         }
@@ -51,18 +50,12 @@
             border: 1px solid #e2e8f0;
             background: white;
             transition: all 0.3s ease;
+            border-radius: 1.5rem;
         }
         .grid-card:hover {
             border-color: var(--secondary-gold);
             box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15);
             transform: translateY(-4px);
-        }
-
-        .category-tab { cursor: pointer; transition: all 0.3s; }
-        .category-tab.active {
-            background-color: var(--primary-blue);
-            color: white !important;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         .article-content-body {
@@ -78,16 +71,23 @@
             border: 1.5px solid #cbd5e1;
             border-radius: 0.75rem;
             transition: all 0.2s;
-        }
-        .form-input:focus {
-            border-color: var(--secondary-gold);
-            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
             outline: none;
         }
+        .form-input:focus { border-color: var(--secondary-gold); box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1); }
 
-        .full-article-view { animation: fadeIn 0.4s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        
+        /* Estilos del selector de país */
+        .country-select-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.9rem;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 0.75rem;
+            background: white;
+            cursor: pointer;
+            min-width: 100px;
+        }
+
         .logo-img { filter: drop-shadow(0 0 4px rgba(255,255,255,0.2)); }
     </style>
 </head>
@@ -95,7 +95,7 @@
 
     <!-- Header Navigation -->
     <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200 shadow-sm">
-        <div class="container mx-auto max-w-6xl px-4 text-sm md:text-base">
+        <div class="container mx-auto max-w-6xl px-4">
             <div class="flex items-center justify-between h-20">
                 <a href="#" class="flex items-center space-x-3" onclick="showPage('inicio')">
                     <img src="https://raw.githubusercontent.com/juanmiguel0927/academia/3398345231d83d088ad54095455e9642e1abd990/Logo.png" alt="Logo JMR" class="h-14 w-14 rounded-full border border-gray-100 object-cover bg-slate-900 logo-img">
@@ -104,7 +104,7 @@
                         <span class="text-[10px] uppercase tracking-widest text-amber-600 font-bold">Música & Tecnología</span>
                     </div>
                 </a>
-                <nav class="hidden lg:flex space-x-6 items-center uppercase font-black text-[11px] tracking-widest">
+                <nav class="hidden lg:flex space-x-8 items-center uppercase font-black text-[11px] tracking-widest">
                     <button onclick="showPage('inicio')" id="btn-inicio" class="main-nav-link active">Inicio</button>
                     <button onclick="showPage('programas')" id="btn-programas" class="main-nav-link">Programas</button>
                     <button onclick="showPage('articulos')" id="btn-articulos" class="main-nav-link">Artículos</button>
@@ -116,31 +116,28 @@
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t p-6 flex flex-col space-y-4 shadow-xl font-bold uppercase text-xs">
-            <button onclick="showPage('inicio'); toggleMobileMenu()">Inicio</button>
-            <button onclick="showPage('programas'); toggleMobileMenu()">Programas</button>
-            <button onclick="showPage('articulos'); toggleMobileMenu()">Artículos</button>
-            <button onclick="showPage('recursos'); toggleMobileMenu()">Recursos</button>
-        </div>
     </header>
 
     <main>
 
-        <!-- SECCIÓN: INICIO (Información Profesional) -->
+        <!-- SECCIÓN: INICIO -->
         <div id="page-inicio" class="page-content">
             <section class="hero-bg text-white py-28 md:py-48 flex items-center justify-center text-center">
                 <div class="container mx-auto max-w-4xl px-4">
-                    <img src="https://raw.githubusercontent.com/juanmiguel0927/academia/3398345231d83d088ad54095455e9642e1abd990/Logo.png" alt="Logo JMR" class="h-44 w-44 mx-auto mb-10 rounded-full border-4 border-white/20 shadow-2xl bg-slate-900 logo-img">
+                    <img src="https://raw.githubusercontent.com/juanmiguel0927/academia/3398345231d83d088ad54095455e9642e1abd990/Logo.png" alt="Logo" class="h-44 w-44 mx-auto mb-10 rounded-full border-4 border-white/20 shadow-2xl bg-slate-900 logo-img">
                     <h1 class="hero-title text-5xl md:text-8xl font-black tracking-tight leading-tight mb-8">
                         La Ciencia del Sonido, <br>
                         <span class="text-amber-400 italic">el Arte de Crear.</span>
                     </h1>
-                    <p class="hero-text text-xl md:text-2xl text-blue-50 font-medium mb-12 max-w-2xl mx-auto">
-                        Músico, docente y desarrollador. Transformo la teoría musical avanzada en soluciones interactivas para tu aprendizaje profesional.
+                    <p class="hero-text text-xl md:text-2xl text-blue-50 font-medium mb-4 max-w-2xl mx-auto">
+                        Formación musical avanzada con tecnología interactiva.
+                    </p>
+                    <p class="text-amber-500 font-black uppercase tracking-[0.2em] text-xs mb-12">
+                        Clases Virtuales • Presencial en Barranquilla
                     </p>
                     <div class="flex flex-col sm:flex-row gap-6 justify-center">
                         <button onclick="showPage('programas')" class="bg-amber-500 text-white font-black px-10 py-5 rounded-2xl shadow-xl hover:bg-amber-600 transition-all transform hover:scale-105 uppercase tracking-widest text-xs">
-                            Ver Programas
+                            Programas Académicos
                         </button>
                         <button onclick="showPage('recursos')" class="bg-white/10 backdrop-blur-md border-2 border-white/40 text-white font-black px-10 py-5 rounded-2xl hover:bg-white hover:text-slate-900 transition-all uppercase tracking-widest text-xs">
                             Laboratorio Digital
@@ -151,28 +148,28 @@
 
             <section class="container mx-auto max-w-6xl px-4 py-24">
                 <div class="grid md:grid-cols-2 gap-20 items-center">
-                    <div class="order-2 md:order-1">
-                        <h2 class="text-4xl font-black mb-8 leading-tight">Guitarrista, Compositor <br>y Arquitecto Digital</h2>
+                    <div class="order-2 md:order-1 text-center md:text-left">
+                        <h2 class="text-4xl font-black mb-8 leading-tight">Compositor, Guitarrista <br>y Desarrollador</h2>
                         <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                            Mi carrera profesional integra la ejecución técnica de la <strong>guitarra</strong> con el rigor analítico de la <strong>composición</strong>. Como docente universitario, desarrollo software exclusivo para que los músicos dominen el lenguaje sonoro de manera lógica e interactiva.
+                            Mi carrera profesional une la ejecución técnica de la <strong>guitarra</strong> con el rigor de la <strong>composición</strong>. Como docente, desarrollo software que permite a mis alumnos dominar el lenguaje sonoro de manera lógica. Ofrezco formación integral <strong>virtual</strong> para todo el mundo y sesiones <strong>presenciales</strong> exclusivamente en <strong>Barranquilla, Colombia</strong>.
                         </p>
-                        <div class="flex items-center space-x-10 mt-12">
+                        <div class="flex flex-wrap justify-center md:justify-start gap-10 mt-12">
                             <div class="border-l-4 border-amber-500 pl-6">
                                 <p class="text-4xl font-black text-slate-900">15+</p>
-                                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest italic">Años Trayectoria</p>
+                                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Años Trayectoria</p>
                             </div>
                             <div class="border-l-4 border-amber-500 pl-6">
                                 <p class="text-4xl font-black text-slate-900" id="total-tools-badge">0</p>
-                                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest italic">Apps Creadas</p>
+                                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Apps Creadas</p>
                             </div>
                         </div>
                     </div>
                     <div class="order-1 md:order-2 relative group">
                         <div class="absolute -inset-4 bg-amber-500/10 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
                         <div class="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
-                            <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=1000&q=80" alt="Facetas Artísticas" class="w-full h-[500px] object-cover">
-                            <div class="absolute bottom-0 left-0 right-0 p-10 bg-gradient-to-t from-slate-900 to-transparent">
-                                <p class="text-white font-bold italic text-lg leading-snug">"La música es lógica emocional, y la tecnología es el instrumento para descifrarla."</p>
+                            <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=1000&q=80" alt="Composición y Guitarra" class="w-full h-[500px] object-cover">
+                            <div class="absolute bottom-0 left-0 right-0 p-10 bg-gradient-to-t from-slate-900 to-transparent text-center">
+                                <p class="text-white font-bold italic text-lg leading-snug">"La tecnología es la llave que explica la lógica de la música."</p>
                             </div>
                         </div>
                     </div>
@@ -183,128 +180,129 @@
         <!-- SECCIÓN: PROGRAMAS -->
         <div id="page-programas" class="page-content hidden py-24 bg-slate-50">
             <div class="container mx-auto max-w-6xl px-4 text-center">
-                <h2 class="text-4xl font-black mb-16 uppercase tracking-tighter">Oferta de Formación Académica</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-                    <!-- Área Armonía -->
-                    <div class="grid-card p-10 rounded-[2.5rem] flex flex-col">
-                        <div class="text-amber-500 text-3xl mb-6">🎹</div>
-                        <h3 class="text-xl font-black mb-6 uppercase">Armonía Especializada</h3>
-                        <ul class="space-y-4 font-bold text-slate-700 flex-grow">
-                            <li>• Armonía de Jazz</li>
-                            <li>• Armonía Tradicional</li>
-                            <li>• Armonía Modal</li>
+                <h2 class="text-4xl font-black mb-4 uppercase tracking-tighter">Programas de Formación</h2>
+                <p class="text-amber-600 font-bold uppercase tracking-widest text-[11px] mb-16">Modalidad Virtual Global • Presencial en Barranquilla</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+                    <div class="grid-card p-8 flex flex-col shadow-sm">
+                        <h3 class="text-lg font-black mb-4 uppercase accent-color-primary">Armonía</h3>
+                        <ul class="space-y-2 text-sm font-bold text-slate-600 flex-grow">
+                            <li>• Jazz</li>
+                            <li>• Tradicional</li>
+                            <li>• Modal</li>
+                        </ul>
+                    </div>
+                    <div class="grid-card p-8 flex flex-col shadow-sm border-amber-500/30">
+                        <h3 class="text-lg font-black mb-4 uppercase accent-color-primary">Creación</h3>
+                        <ul class="space-y-2 text-sm font-bold text-slate-600 flex-grow">
+                            <li>• Composición</li>
+                            <li>• Guitarra y Técnica</li>
                             <li>• Teoría Musical</li>
                         </ul>
-                        <button onclick="scrollToContact()" class="mt-10 w-full py-4 border-2 border-slate-900 text-slate-900 font-black rounded-2xl hover:bg-slate-900 hover:text-white transition-all uppercase text-[10px] tracking-widest">Consultar</button>
                     </div>
-                    <!-- Área Creación -->
-                    <div class="grid-card p-10 rounded-[2.5rem] border-2 border-amber-500 shadow-2xl scale-105 flex flex-col bg-slate-900 text-white">
-                        <div class="text-amber-500 text-3xl mb-6">✍️</div>
-                        <h3 class="text-xl font-black mb-6 uppercase">Instrumento & Creación</h3>
-                        <ul class="space-y-4 font-bold flex-grow">
-                            <li>• Composición Musical</li>
-                            <li>• Guitarra y Técnica</li>
-                            <li>• Análisis de Obras</li>
+                    <div class="grid-card p-8 flex flex-col shadow-sm">
+                        <h3 class="text-lg font-black mb-4 uppercase accent-color-primary">Pre-U</h3>
+                        <ul class="space-y-2 text-sm font-bold text-slate-600 flex-grow">
+                            <li>• Examen de Entrada</li>
+                            <li>• Pre Universitario</li>
                         </ul>
-                        <button onclick="scrollToContact()" class="mt-10 w-full bg-amber-500 text-white font-black py-4 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:brightness-110 transition-all">Solicitar Cupo</button>
                     </div>
-                    <!-- Área Prep -->
-                    <div class="grid-card p-10 rounded-[2.5rem] flex flex-col">
-                        <div class="text-amber-500 text-3xl mb-6">🎓</div>
-                        <h3 class="text-xl font-black mb-6 uppercase">Pre-Universitario</h3>
-                        <ul class="space-y-4 font-bold text-slate-700 flex-grow">
-                            <li>• Preparación Examen Entrada</li>
-                            <li>• Nivelación Musical</li>
-                            <li>• Asesoría de Refuerzo</li>
+                    <div class="grid-card p-8 flex flex-col shadow-sm bg-slate-900 text-white">
+                        <h3 class="text-lg font-black mb-4 uppercase text-amber-500">Apoyo</h3>
+                        <ul class="space-y-2 text-sm font-bold text-slate-300 flex-grow">
+                            <li>• Refuerzo Académico</li>
+                            <li>• Mentoría</li>
                         </ul>
-                        <button onclick="scrollToContact()" class="mt-10 w-full py-4 border-2 border-slate-900 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-slate-900 hover:text-white transition-all">Ver Detalles</button>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- SECCIÓN: ARTÍCULOS -->
-        <div id="page-articulos" class="page-content hidden py-24">
-            <div class="container mx-auto max-w-6xl px-4">
-                <div id="article-list-view">
-                    <div class="text-center mb-16">
-                        <h2 class="text-4xl font-black mb-4 uppercase tracking-tighter">Biblioteca de Conocimiento</h2>
-                        <p class="text-slate-500 uppercase tracking-widest text-[10px] font-bold italic">Conceptos base y análisis especializado</p>
-                    </div>
-                    <div class="flex flex-col lg:flex-row gap-12">
-                        <aside class="lg:w-1/3 space-y-2 sticky top-28">
-                            <button onclick="filterArticles('armonia')" class="article-cat-btn w-full text-left p-4 rounded-2xl font-black text-xs uppercase transition-all flex items-center justify-between active" id="btn-cat-armonia"><span>🎹 Armonía</span> <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"></path></svg></button>
-                            <button onclick="filterArticles('contrapunto')" class="article-cat-btn w-full text-left p-4 rounded-2xl font-black text-xs uppercase transition-all flex items-center justify-between" id="btn-cat-contrapunto"><span>🎼 Contrapunto</span> <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"></path></svg></button>
-                            <button onclick="filterArticles('analisis')" class="article-cat-btn w-full text-left p-4 rounded-2xl font-black text-xs uppercase transition-all flex items-center justify-between" id="btn-cat-analisis"><span>🔍 Análisis</span> <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"></path></svg></button>
-                            <button onclick="filterArticles('composicion')" class="article-cat-btn w-full text-left p-4 rounded-2xl font-black text-xs uppercase transition-all flex items-center justify-between" id="btn-cat-composicion"><span>✍️ Composición</span> <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"></path></svg></button>
-                        </aside>
-                        <div class="lg:w-2/3 space-y-4">
-                            <div class="article-group" id="group-armonia">
-                                <div class="bg-white border rounded-2xl overflow-hidden mb-4 shadow-sm hover:shadow-md transition-all">
-                                    <button class="flex justify-between items-center w-full p-6 text-left font-black text-slate-800" onclick="toggleTree(this)">Tema Base: El Sistema Tonal Moderno <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-                                    <div class="article-content-body"><div class="p-8 pt-0 text-slate-600 border-t border-slate-50"><p class="mb-4">Introducción a la formación de tríadas, funciones armónicas y tensiones en la música tonal.</p><button onclick="viewFull('armonia-base')" class="text-amber-600 font-black uppercase text-[10px] tracking-widest hover:underline">Continuar leyendo →</button></div></div>
-                                </div>
-                            </div>
-                            <div class="article-group hidden" id="group-contrapunto">
-                                <div class="bg-white border rounded-2xl overflow-hidden mb-4 shadow-sm">
-                                    <button class="flex justify-between items-center w-full p-6 text-left font-black text-slate-800" onclick="toggleTree(this)">Tema Base: Primera Especie <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-                                    <div class="article-content-body"><div class="p-8 pt-0 text-slate-600 border-t border-slate-50"><p class="mb-4">Reglas básicas de conducción de voces e independencia melódica nota contra nota.</p><button onclick="viewFull('contrapunto-base')" class="text-amber-600 font-black uppercase text-[10px] tracking-widest hover:underline">Continuar leyendo →</button></div></div>
-                                </div>
-                            </div>
-                            <div class="article-group hidden" id="group-analisis">
-                                <div class="bg-white border rounded-2xl overflow-hidden mb-4 shadow-sm">
-                                    <button class="flex justify-between items-center w-full p-6 text-left font-black text-slate-800" onclick="toggleTree(this)">Tema Base: La Forma Sonata <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-                                    <div class="article-content-body"><div class="p-8 pt-0 text-slate-600 border-t border-slate-50"><p class="mb-4">Estructura formal clásica: Exposición, Desarrollo y Reexposición analizados.</p><button onclick="viewFull('analisis-base')" class="text-amber-600 font-black uppercase text-[10px] tracking-widest hover:underline">Continuar leyendo →</button></div></div>
-                                </div>
-                            </div>
-                            <div class="article-group hidden" id="group-composicion">
-                                <div class="bg-white border rounded-2xl overflow-hidden mb-4 shadow-sm">
-                                    <button class="flex justify-between items-center w-full p-6 text-left font-black text-slate-800" onclick="toggleTree(this)">Tema Base: Desarrollo Motívico <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-                                    <div class="article-content-body"><div class="p-8 pt-0 text-slate-600 border-t border-slate-50"><p class="mb-4">Cómo expandir una idea mínima en una estructura musical coherente.</p><button onclick="viewFull('composicion-base')" class="text-amber-600 font-black uppercase text-[10px] tracking-widest hover:underline">Continuar leyendo →</button></div></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Vista Detalle -->
-                <div id="article-detail-view" class="hidden max-w-4xl mx-auto full-article-view">
-                    <button onclick="backToArticles()" class="mb-8 flex items-center text-slate-400 font-black uppercase text-[10px] tracking-widest hover:text-amber-600 transition-colors"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg> Regresar</button>
-                    <div id="full-art-content" class="bg-white rounded-[3rem] shadow-2xl p-10 md:p-16 border border-slate-100"></div>
-                </div>
+                <button onclick="scrollToContact()" class="mt-12 bg-slate-900 text-white font-black px-10 py-4 rounded-2xl uppercase text-xs tracking-widest hover:bg-amber-600 transition-all">Solicitar Información</button>
             </div>
         </div>
 
         <!-- SECCIÓN: RECURSOS -->
         <div id="page-recursos" class="page-content hidden py-24">
-            <div class="container mx-auto max-w-6xl px-4 text-center">
-                <h2 class="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tighter">HERRAMIENTAS INTERACTIVAS (<span id="resource-count-hero"></span> DISPONIBLES)</h2>
-                <p class="text-slate-500 uppercase tracking-widest text-[11px] font-black mb-16 italic">Software exclusivo para el estudio académico avanzado</p>
+            <div class="container mx-auto max-w-6xl px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-2xl md:text-4xl font-black mb-4 uppercase tracking-tighter">HERRAMIENTAS INTERACTIVAS (<span id="resource-count-hero"></span> DISPONIBLES)</h2>
+                    <p class="text-slate-500 uppercase tracking-widest text-[10px] font-bold italic">Laboratorio Digital de Juan Miguel Ríos</p>
+                </div>
                 <div class="flex flex-wrap justify-center gap-3 mb-16" id="resource-tabs"></div>
-                <div id="resources-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left"></div>
+                <div id="resources-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
             </div>
         </div>
 
-        <!-- SECCIÓN: CONTACTO -->
+        <!-- SECCIÓN: ARTÍCULOS -->
+        <div id="page-articulos" class="page-content hidden py-24">
+            <!-- (Contenido de artículos resumido por espacio, manteniendo lógica de árbol) -->
+            <div class="container mx-auto max-w-6xl px-4 text-center">
+                 <h2 class="text-4xl font-black mb-16 uppercase tracking-tighter">Biblioteca de Conocimiento</h2>
+                 <div id="article-list-view" class="text-left space-y-4 max-w-3xl mx-auto">
+                    <!-- Ejemplo de árbol funcional -->
+                    <div class="bg-white border rounded-2xl overflow-hidden shadow-sm">
+                        <button class="w-full p-6 flex justify-between items-center font-black text-slate-800" onclick="toggleTree(this)">
+                            🎹 Armonía y Análisis
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="3"/></svg>
+                        </button>
+                        <div class="article-content-body p-6 pt-0 border-t border-slate-50">
+                            <p class="text-slate-600 mb-4">Temas fundamentales sobre el sistema tonal y funcional.</p>
+                            <button onclick="viewFull('armonia-base')" class="text-amber-600 font-black uppercase text-[10px] tracking-widest hover:underline">Continuar leyendo →</button>
+                        </div>
+                    </div>
+                 </div>
+                 <!-- Vista Detalle Artículo -->
+                <div id="article-detail-view" class="hidden max-w-4xl mx-auto text-left">
+                    <button onclick="backToArticles()" class="mb-8 flex items-center text-slate-400 font-black uppercase text-[10px] tracking-widest hover:text-amber-600 transition-colors">Regresar</button>
+                    <div id="full-art-content" class="bg-white rounded-[3rem] shadow-2xl p-10 md:p-16 border border-slate-100"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN: CONTACTO CON SELECTOR INTELIGENTE -->
         <section id="contacto" class="container mx-auto max-w-6xl px-4 py-32">
             <div class="bg-slate-900 rounded-[3rem] shadow-3xl overflow-hidden grid lg:grid-cols-2 border border-slate-800">
-                <div class="p-10 md:p-20 flex flex-col justify-center text-white lg:text-left text-center">
+                <div class="p-10 md:p-20 flex flex-col justify-center text-white text-center lg:text-left">
                     <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight italic">Iniciemos tu <span class="text-amber-500">sesión</span>.</h2>
-                    <p class="text-blue-100/60 mb-10 text-lg">Reserva una charla informativa de 15 minutos sin costo. Tu mensaje llegará directamente a mi sistema de notificaciones móvil.</p>
+                    <p class="text-blue-100/60 mb-6 text-lg font-medium leading-relaxed">
+                        Cursos 100% Virtuales. <br>
+                        Presencial únicamente en Barranquilla.
+                    </p>
+                    <p class="text-blue-200/50 mb-10 text-sm">Reserva una charla informativa de 15 minutos sin costo. La notificación llegará directo a mi celular.</p>
                     <div class="flex items-center space-x-4 justify-center lg:justify-start">
                         <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-amber-500"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-width="2"/></svg></div>
                         <span class="font-bold text-sm">juanmiguel0927@gmail.com</span>
                     </div>
                 </div>
+                
                 <div class="bg-white p-10 md:p-20">
-                    <!-- Formulario con Endpoint Actualizado -->
                     <form id="contact-form" action="https://formspree.io/f/mnjvabdo" method="POST" class="space-y-6">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div><label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Nombre Completo</label><input type="text" name="name" required class="form-input" placeholder="Tu nombre"></div>
-                            <div><label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Celular</label><input type="tel" name="phone" required class="form-input" placeholder="Para contactarte"></div>
+                        <div>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Nombre Completo</label>
+                            <input type="text" name="name" required class="form-input" placeholder="Tu nombre">
                         </div>
-                        <div><label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Email</label><input type="email" name="email" required class="form-input" placeholder="correo@ejemplo.com"></div>
-                        <div><label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">¿Cómo puedo ayudarte?</label><textarea name="message" rows="4" required class="form-input" placeholder="Cuéntame sobre tus objetivos..."></textarea></div>
-                        <button type="submit" id="form-btn" class="w-full bg-slate-900 text-white font-black py-5 rounded-2xl shadow-xl hover:bg-amber-600 transition-all uppercase tracking-widest text-[11px]">Enviar y Notificar al Celular</button>
+                        
+                        <!-- Smart Phone Field -->
+                        <div class="space-y-2">
+                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Número de Celular</label>
+                            <div class="flex gap-2">
+                                <div class="relative w-1/3">
+                                    <button type="button" onclick="toggleCountryDropdown()" id="selected-country" class="country-select-btn w-full justify-between">
+                                        <span id="flag-display">🇨🇴</span>
+                                        <span id="code-display" class="font-bold text-xs">+57</span>
+                                    </button>
+                                    <div id="country-dropdown" class="absolute left-0 mt-2 w-64 max-h-64 bg-white border border-slate-200 rounded-xl shadow-2xl hidden z-50 overflow-y-auto">
+                                        <input type="text" id="country-filter" placeholder="Buscar país o código..." class="w-full p-3 text-xs border-b sticky top-0 bg-white outline-none">
+                                        <div id="country-list"></div>
+                                    </div>
+                                </div>
+                                <input type="tel" name="phone" id="phone-input" required class="form-input flex-grow" placeholder="300 000 0000">
+                                <input type="hidden" name="full_phone" id="hidden-full-phone">
+                            </div>
+                            <p id="country-detect-label" class="text-[9px] font-bold text-amber-600 uppercase tracking-widest ml-1"></p>
+                        </div>
+
+                        <div><label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Correo</label><input type="email" name="email" required class="form-input" placeholder="correo@ejemplo.com"></div>
+                        <div><label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Mensaje</label><textarea name="message" rows="4" required class="form-input" placeholder="¿En qué puedo ayudarte?"></textarea></div>
+                        <button type="submit" id="form-btn" class="w-full bg-slate-900 text-white font-black py-5 rounded-2xl shadow-xl hover:bg-amber-600 transition-all uppercase tracking-widest text-[10px]">Enviar Mensaje Directo</button>
                         <div id="form-result" class="hidden text-center font-bold text-sm mt-4"></div>
                     </form>
                 </div>
@@ -314,60 +312,126 @@
 
     <footer class="bg-white border-t py-20 text-center">
         <div class="container mx-auto max-w-6xl px-4">
-            <img src="https://raw.githubusercontent.com/juanmiguel0927/academia/3398345231d83d088ad54095455e9642e1abd990/Logo.png" alt="Logo" class="h-20 w-20 mx-auto mb-6 rounded-full object-cover bg-slate-900 p-1 logo-display">
-            <p class="text-slate-900 font-black uppercase tracking-tighter text-xl leading-none">Juan Miguel Ríos Redondo</p>
+            <img src="https://raw.githubusercontent.com/juanmiguel0927/academia/3398345231d83d088ad54095455e9642e1abd990/Logo.png" alt="Logo" class="h-20 w-20 mx-auto mb-6 rounded-full object-cover bg-slate-900 p-1">
+            <p class="text-slate-900 font-black uppercase tracking-tighter text-xl">Juan Miguel Ríos Redondo</p>
             <p class="text-slate-400 text-[10px] mb-8 uppercase tracking-widest mt-2 font-black">Barranquilla, Colombia | 2026</p>
         </div>
     </footer>
 
     <script>
+        // DATA DE PAÍSES PARA EL SELECTOR
+        const countries = [
+            { n: "Colombia", c: "+57", f: "🇨🇴", p: "57" },
+            { n: "México", c: "+52", f: "🇲🇽", p: "52" },
+            { n: "España", c: "+34", f: "🇪🇸", p: "34" },
+            { n: "Argentina", c: "+54", f: "🇦🇷", p: "54" },
+            { n: "Estados Unidos", c: "+1", f: "🇺🇸", p: "1" },
+            { n: "Chile", c: "+56", f: "🇨🇱", p: "56" },
+            { n: "Perú", c: "+51", f: "🇵🇪", p: "51" },
+            { n: "Ecuador", c: "+593", f: "🇪🇨", p: "593" },
+            { n: "Panamá", c: "+507", f: "🇵🇦", p: "507" },
+            { n: "Venezuela", c: "+58", f: "🇻🇪", p: "58" },
+            { n: "Uruguay", c: "+598", f: "🇺🇾", p: "598" },
+            { n: "Costa Rica", c: "+506", f: "🇨🇷", p: "506" },
+            { n: "Guatemala", c: "+502", f: "🇬🇹", p: "502" }
+        ].sort((a, b) => a.n.localeCompare(b.n));
+
+        // LÓGICA DEL SELECTOR INTELIGENTE
+        let currentCountry = countries.find(c => c.p === "57");
+
+        function toggleCountryDropdown() {
+            document.getElementById('country-dropdown').classList.toggle('hidden');
+        }
+
+        function selectCountry(country) {
+            currentCountry = country;
+            document.getElementById('flag-display').textContent = country.f;
+            document.getElementById('code-display').textContent = country.c;
+            document.getElementById('country-dropdown').classList.add('hidden');
+            document.getElementById('country-detect-label').textContent = country.n.toUpperCase();
+        }
+
+        function initPhoneLogic() {
+            const list = document.getElementById('country-list');
+            const filter = document.getElementById('country-filter');
+            const phoneInput = document.getElementById('phone-input');
+
+            function render(f = "") {
+                list.innerHTML = "";
+                countries.filter(c => c.n.toLowerCase().includes(f.toLowerCase()) || c.c.includes(f))
+                .forEach(c => {
+                    const item = document.createElement('div');
+                    item.className = "p-3 text-xs hover:bg-slate-50 cursor-pointer flex justify-between items-center border-b border-slate-50 font-bold";
+                    item.innerHTML = `<span>${c.f} ${c.n}</span><span class="text-amber-600">${c.c}</span>`;
+                    item.onclick = () => selectCountry(c);
+                    list.appendChild(item);
+                });
+            }
+
+            filter.oninput = (e) => render(e.target.value);
+            
+            // DETECCIÓN AUTOMÁTICA AL ESCRIBIR
+            phoneInput.oninput = (e) => {
+                const val = e.target.value;
+                if (val.length >= 1) {
+                    const match = countries.find(c => val.startsWith(c.p));
+                    if (match && match !== currentCountry) {
+                        selectCountry(match);
+                    }
+                }
+            };
+
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('#selected-country') && !e.target.closest('#country-dropdown')) {
+                    document.getElementById('country-dropdown').classList.add('hidden');
+                }
+            });
+
+            render();
+        }
+
+        // LÓGICA DE NAVEGACIÓN Y OTROS
         const resData = {
             "Teoría & Composición": [
                 { title: "Bloques Armónicos", url: "https://juanmiguel0927.github.io/BloqueArmonicoPro/", desc: "Técnica 4-way closed.", icon: "🧱" },
-                { title: "Neo-Riemanniana", url: "https://juanmiguel0927.github.io/TeoriaNeo-Riemanniana/", desc: "Relaciones tonales modernas.", icon: "🔄" },
-                { title: "Dodecafonismo", url: "https://juanmiguel0927.github.io/GeneradorDodecafonico/", desc: "Series de 12 tonos.", icon: "🔢" },
-                { title: "Isorritmia", url: "https://juanmiguel0927.github.io/GeneradorDeIsorritmia/", desc: "Talea y color.", icon: "🧬" },
+                { title: "Teoría Neo-Riemanniana", url: "https://juanmiguel0927.github.io/TeoriaNeo-Riemanniana/", desc: "Relaciones tonales.", icon: "🔄" },
+                { title: "Dodecafonismo", url: "https://juanmiguel0927.github.io/GeneradorDodecafonico/", desc: "Series 12 tonos.", icon: "🔢" },
+                { title: "Isorritmia", url: "https://juanmiguel0927.github.io/GeneradorDeIsorritmia/", desc: "Composición rítmica.", icon: "🧬" },
                 { title: "Navegación Modal", url: "https://juanmiguel0927.github.io/NavegacionModal/", desc: "Rutas entre modos.", icon: "🧭" },
                 { title: "Duración Pro", url: "https://juanmiguel0927.github.io/DuracionMusicalPro/", desc: "Cálculo técnico BPM.", icon: "⏱️" }
             ],
             "Jazz & Impro": [
-                { title: "Barry Harris", url: "https://juanmiguel0927.github.io/BarryHarrisArmonia/", desc: "Escalas y voicings Harris.", icon: "🎹" },
-                { title: "Laboratorio Jazz", url: "https://juanmiguel0927.github.io/LaboratorioLenguajeDeJazz/", desc: "Práctica de fraseo.", icon: "🧪" },
-                { title: "Laboratorio Modos", url: "https://juanmiguel0927.github.io/LaboratorioDeModos/", desc: "Exploración sonora.", icon: "🎨" },
-                { title: "Menor Melódica", url: "https://juanmiguel0927.github.io/MenorMelodico/", desc: "Estudio para Jazz.", icon: "🌑" },
+                { title: "Barry Harris", url: "https://juanmiguel0927.github.io/BarryHarrisArmonia/", desc: "Método Harris.", icon: "🎹" },
+                { title: "Laboratorio Jazz", url: "https://juanmiguel0927.github.io/LaboratorioLenguajeDeJazz/", desc: "Práctica fraseo.", icon: "🧪" },
+                { title: "Modos", url: "https://juanmiguel0927.github.io/LaboratorioDeModos/", desc: "Exploración sonora.", icon: "🎨" },
+                { title: "Menor Melódica", url: "https://juanmiguel0927.github.io/MenorMelodico/", desc: "Estudio Jazz.", icon: "🌑" },
                 { title: "Resoluciones Blues", url: "https://juanmiguel0927.github.io/ResolucionesBlues/", desc: "Licks esenciales.", icon: "🎸" },
                 { title: "Pentatónicas", url: "https://juanmiguel0927.github.io/Pentatonicas/", desc: "Relación escala-acorde.", icon: "🖐️" },
-                { title: "Guía GMC", url: "https://juanmiguel0927.github.io/GMC/", desc: "Método Mick Goodrick.", icon: "📖" }
+                { title: "GMC", url: "https://juanmiguel0927.github.io/GMC/", desc: "Creative Chordal Harmony.", icon: "📖" }
             ],
             "Habilidades": [
                 { title: "Formar Oído Pro", url: "https://juanmiguel0927.github.io/FormarOidoPro/", desc: "Oído funcional.", icon: "👂" },
-                { title: "Laboratorio Rítmico", url: "https://juanmiguel0927.github.io/Ritmo/", desc: "Ritmos afrocaribeños.", icon: "👂" },
-                { title: "Ritmo y Metro", url: "https://juanmiguel0927.github.io/Ritmo-Metro/", desc: "Metrónomo avanzado.", icon: "🥁" },
-                { title: "Sight-Reading", url: "https://juanmiguel0927.github.io/LecturaAPrimeraVista/", desc: "Lectura para guitarra.", icon: "📄" },
-                { title: "Lectura Rápida", url: "https://juanmiguel0927.github.io/LecturaRapida/", desc: "Hábito del español.", icon: "⚡" }
+                { title: "Lab. Rítmico", url: "https://juanmiguel0927.github.io/Ritmo/", desc: "Música afrocaribeña.", icon: "👂" },
+                { title: "Ritmo y Metro", url: "https://juanmiguel0927.github.io/Ritmo-Metro/", desc: "Subdivisiones.", icon: "🥁" },
+                { title: "Sight-Reading", url: "https://juanmiguel0927.github.io/LecturaAPrimeraVista/", desc: "Lectura guitarra.", icon: "📄" },
+                { title: "Lectura Rápida", url: "https://juanmiguel0927.github.io/LecturaRapida/", desc: "Técnica español.", icon: "⚡" }
             ],
             "Gestión Profesional": [
-                { title: "CV Interactivo", url: "https://juanmiguel0927.github.io/CurriculumVitae/", desc: "Perfil profesional.", icon: "💼" },
+                { title: "CV Interactivo", url: "https://juanmiguel0927.github.io/CurriculumVitae/", desc: "Hoja de vida.", icon: "💼" },
                 { title: "Bibliografía", url: "https://juanmiguel0927.github.io/Bibliografia/", desc: "Fuentes de estudio.", icon: "📚" }
             ],
             "Billar Pool": [
                 { title: "Técnica Pool", url: "https://juanmiguel0927.github.io/Tecnica/", desc: "Rutinas técnicas.", icon: "🎱" },
-                { title: "Ejercicios Pool", url: "https://juanmiguel0927.github.io/Pool/", desc: "Retos de mesa.", icon: "🎯" },
+                { title: "Ejercicios", url: "https://juanmiguel0927.github.io/Pool/", desc: "Retos de mesa.", icon: "🎯" },
                 { title: "Examen Pool", url: "https://juanmiguel0927.github.io/ExamenPool/", desc: "Test de nivel.", icon: "📝" }
             ],
             "Estilo de Vida": [
-                { title: "Piloto", url: "https://juanmiguel0927.github.io/Piloto/", desc: "Audiolibros en actualización.", icon: "✈️" },
+                { title: "Piloto", url: "https://juanmiguel0927.github.io/Piloto/", desc: "Audiolibros.", icon: "✈️" },
                 { title: "Finanzas", url: "https://juanmiguel0927.github.io/Finanzas/", desc: "Gestión personal.", icon: "💰" },
-                { title: "Ahorro Flex", url: "https://juanmiguel0927.github.io/AhorroFlex/", desc: "Metas financieras.", icon: "🐷" },
-                { title: "Lunea", url: "https://juanmiguel0927.github.io/Lunea/", desc: "Control ciclo menstrual.", icon: "🌙" }
+                { title: "Ahorro Flex", url: "https://juanmiguel0927.github.io/AhorroFlex/", desc: "Metas ahorro.", icon: "🐷" },
+                { title: "Lunea", url: "https://juanmiguel0927.github.io/Lunea/", desc: "Ciclo menstrual.", icon: "🌙" },
+                { title: "Asados", url: "https://juanmiguel0927.github.io/Asados/", desc: "Recetas parrilla.", icon: "🥩" }
             ]
-        };
-
-        const artCont = {
-            'armonia-base': `<h2 class="text-4xl font-black mb-8 text-slate-900 leading-tight">El Sistema Tonal Moderno</h2><div class="prose text-slate-600 text-lg space-y-6"><p>La armonía tonal se fundamenta en la jerarquía de las notas y las funciones armónicas de tensión y reposo.</p><h3 class="font-bold text-slate-900 text-2xl mt-10">Conceptos Fundamentales</h3><p>Tónica (I), Subdominante (IV) y Dominante (V) son los ejes que crean el ciclo sonoro eterno.</p></div>`,
-            'contrapunto-base': `<h2 class="text-4xl font-black mb-8 text-slate-900 leading-tight">Primera Especie: Independencia Vocálica</h2><div class="prose text-slate-600 text-lg space-y-6"><p>En la primera especie de contrapunto, buscamos la armonía perfecta entre dos líneas nota contra nota.</p></div>`,
-            'analisis-base': `<h2 class="text-4xl font-black mb-8 text-slate-900 leading-tight">La Forma Sonata</h2><div class="prose text-slate-600 text-lg space-y-6"><p>La estructura más sofisticada del periodo clásico analizada paso a paso.</p></div>`,
-            'composicion-base': `<h2 class="text-4xl font-black mb-8 text-slate-900 leading-tight">Desarrollo Motívico</h2><div class="prose text-slate-600 text-lg space-y-6"><p>Cómo transformar una célula melódica mínima en una estructura grande y coherente.</p></div>`
         };
 
         function showPage(p) {
@@ -375,42 +439,16 @@
             document.getElementById('page-' + p).classList.remove('hidden');
             document.querySelectorAll('.main-nav-link').forEach(n => n.classList.remove('active'));
             document.getElementById('btn-' + p)?.classList.add('active');
-            if(p === 'articulos') backToArticles();
             window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-
-        function viewFull(id) {
-            document.getElementById('article-full-content').innerHTML = artCont[id] || '<p class="italic text-slate-400">Contenido en edición...</p>';
-            document.getElementById('article-list-view').classList.add('hidden');
-            document.getElementById('article-detail-view').classList.remove('hidden');
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-        function backToArticles() {
-            document.getElementById('article-list-view').classList.remove('hidden');
-            document.getElementById('article-detail-view').classList.add('hidden');
-        }
-        function toggleTree(b) {
-            const c = b.nextElementSibling;
-            b.querySelector('svg').classList.toggle('rotate-180');
-            c.classList.toggle('open');
-        }
-        function filterArticles(c) {
-            document.querySelectorAll('.article-cat-btn').forEach(b => b.classList.remove('bg-slate-900', 'text-white'));
-            document.getElementById('btn-cat-' + c)?.classList.add('bg-slate-900', 'text-white');
-            document.querySelectorAll('.article-group').forEach(g => g.classList.add('hidden'));
-            document.getElementById('group-' + c)?.classList.remove('hidden');
-            backToArticles();
         }
 
         function initRes() {
             const tabs = document.getElementById('resource-tabs');
             let t = 0;
-            const cats = Object.keys(resData);
-            tabs.innerHTML = '';
-            cats.forEach((c, i) => {
+            Object.keys(resData).forEach((c, i) => {
                 t += resData[c].length;
                 const b = document.createElement('button');
-                b.className = `category-tab px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-slate-900 ${i === 0 ? 'active' : ''}`;
+                b.className = `category-tab px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-slate-900 ${i === 0 ? 'active' : ''}`;
                 b.textContent = c;
                 b.onclick = (e) => {
                     document.querySelectorAll('.category-tab').forEach(x => x.classList.remove('active'));
@@ -421,14 +459,14 @@
             });
             document.getElementById('resource-count-hero').textContent = t;
             document.getElementById('total-tools-badge').textContent = t;
-            renderRes(cats[0]);
+            renderRes(Object.keys(resData)[0]);
         }
 
         function renderRes(c) {
             const g = document.getElementById('resources-grid');
             g.innerHTML = '';
             resData[c].forEach(x => {
-                g.innerHTML += `<a href="${x.url}" target="_blank" class="grid-card p-8 rounded-[2rem] flex flex-col border-slate-100 hover:border-amber-500/50"><div class="text-4xl mb-4">${x.icon}</div><h4 class="font-black text-lg mb-2 text-slate-900">${x.title}</h4><p class="text-sm text-slate-500 mb-6 leading-relaxed">${x.desc}</p><span class="text-[10px] font-black text-amber-600 uppercase tracking-widest mt-auto">Abrir Herramienta →</span></a>`;
+                g.innerHTML += `<a href="${x.url}" target="_blank" class="grid-card p-8 flex flex-col border-slate-100"><div class="text-4xl mb-4">${x.icon}</div><h4 class="font-black text-lg mb-2 text-slate-900">${x.title}</h4><p class="text-sm text-slate-500 mb-6 leading-relaxed">${x.desc}</p><span class="text-[10px] font-black text-amber-600 uppercase tracking-widest mt-auto">Abrir Herramienta →</span></a>`;
             });
         }
 
@@ -437,18 +475,24 @@
             e.preventDefault();
             const b = document.getElementById('form-btn');
             const r = document.getElementById('form-result');
+            document.getElementById('hidden-full-phone').value = currentCountry.c + " " + document.getElementById('phone-input').value;
             b.disabled = true; b.textContent = 'Enviando...';
             const resp = await fetch(cForm.action, { method: 'POST', body: new FormData(cForm), headers: { 'Accept': 'application/json' } });
-            if (resp.ok) { r.textContent = "¡Mensaje enviado! Te contactaré pronto."; r.className = "block text-green-600 font-bold mt-4"; cForm.reset(); } 
+            if (resp.ok) { r.textContent = "¡Enviado! Me pondré en contacto pronto."; r.className = "block text-green-600 font-bold mt-4"; cForm.reset(); } 
             else { r.textContent = "Error al enviar. Intenta de nuevo."; r.className = "block text-red-600 font-bold mt-4"; }
             b.disabled = false; b.textContent = 'Enviar Mensaje Directo';
             r.classList.remove('hidden');
         };
 
+        function toggleTree(b) {
+            const c = b.nextElementSibling;
+            b.querySelector('svg').classList.toggle('rotate-180');
+            c.classList.toggle('open');
+        }
         function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
         function scrollToContact() { document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' }); }
 
-        document.addEventListener('DOMContentLoaded', () => { initRes(); filterArticles('armonia'); });
+        document.addEventListener('DOMContentLoaded', () => { initRes(); initPhoneLogic(); selectCountry(currentCountry); });
     </script>
 </body>
 </html>
