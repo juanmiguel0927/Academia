@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juan Miguel Ríos | Guitarra, Composición y Tecnología Musical</title>
-    <meta name="description" content="Formación musical avanzada: virtual y presencial en Barranquilla. Recursos interactivos y artículos especializados.">
+    <meta name="description" content="Formación musical avanzada: virtual a nivel global y presencial en Barranquilla. Recursos interactivos y artículos especializados.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,6 @@
         :root {
             --primary-blue: #0f172a; 
             --secondary-gold: #d4af37; 
-            --accent-gold: #f59e0b;
             --text-dark: #1e293b;
             --bg-light: #f8fafc;
         }
@@ -63,7 +62,7 @@
             overflow: hidden;
             transition: max-height 0.4s ease-out;
         }
-        .article-content-body.open { max-height: 1500px; }
+        .article-content-body.open { max-height: 2000px; }
 
         .form-input {
             width: 100%;
@@ -72,10 +71,10 @@
             border-radius: 0.75rem;
             transition: all 0.2s;
             outline: none;
+            background: white;
         }
         .form-input:focus { border-color: var(--secondary-gold); box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1); }
 
-        /* Estilos del selector de país */
         .country-select-btn {
             display: flex;
             align-items: center;
@@ -85,21 +84,29 @@
             border-radius: 0.75rem;
             background: white;
             cursor: pointer;
-            min-width: 100px;
+            min-width: 110px;
+            transition: all 0.2s;
         }
 
-        .logo-img { filter: drop-shadow(0 0 4px rgba(255,255,255,0.2)); }
+        #country-dropdown {
+            scrollbar-width: thin;
+            scrollbar-color: var(--secondary-gold) #f1f5f9;
+        }
+
+        .logo-nav { background-color: #0f172a; padding: 2px; }
+        .full-article-view { animation: slideIn 0.4s ease-out; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Header Navigation -->
     <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200 shadow-sm">
-        <div class="container mx-auto max-w-6xl px-4">
+        <div class="container mx-auto max-w-6xl px-4 text-sm md:text-base">
             <div class="flex items-center justify-between h-20">
                 <a href="#" class="flex items-center space-x-3" onclick="showPage('inicio')">
-                    <img src="https://raw.githubusercontent.com/juanmiguel0927/academia/3398345231d83d088ad54095455e9642e1abd990/Logo.png" alt="Logo JMR" class="h-14 w-14 rounded-full border border-gray-100 object-cover bg-slate-900 logo-img">
-                    <div class="flex flex-col">
+                    <img src="https://raw.githubusercontent.com/juanmiguel0927/academia/3398345231d83d088ad54095455e9642e1abd990/Logo.png" alt="Logo JMR" class="h-14 w-14 rounded-full border border-gray-100 object-cover bg-slate-900 logo-nav">
+                    <div class="flex flex-col text-left">
                         <span class="font-black text-slate-900 tracking-tight uppercase text-xs md:text-sm leading-tight">Juan Miguel Ríos</span>
                         <span class="text-[10px] uppercase tracking-widest text-amber-600 font-bold">Música & Tecnología</span>
                     </div>
@@ -124,20 +131,20 @@
         <div id="page-inicio" class="page-content">
             <section class="hero-bg text-white py-28 md:py-48 flex items-center justify-center text-center">
                 <div class="container mx-auto max-w-4xl px-4">
-                    <img src="https://raw.githubusercontent.com/juanmiguel0927/academia/3398345231d83d088ad54095455e9642e1abd990/Logo.png" alt="Logo" class="h-44 w-44 mx-auto mb-10 rounded-full border-4 border-white/20 shadow-2xl bg-slate-900 logo-img">
+                    <img src="https://raw.githubusercontent.com/juanmiguel0927/academia/3398345231d83d088ad54095455e9642e1abd990/Logo.png" alt="Logo" class="h-44 w-44 mx-auto mb-10 rounded-full border-4 border-white/20 shadow-2xl bg-slate-900">
                     <h1 class="hero-title text-5xl md:text-8xl font-black tracking-tight leading-tight mb-8">
                         La Ciencia del Sonido, <br>
                         <span class="text-amber-400 italic">el Arte de Crear.</span>
                     </h1>
-                    <p class="hero-text text-xl md:text-2xl text-blue-50 font-medium mb-4 max-w-2xl mx-auto">
+                    <p class="hero-text text-xl md:text-2xl text-blue-50 font-medium mb-4 max-w-2xl mx-auto leading-relaxed">
                         Formación musical avanzada con tecnología interactiva.
                     </p>
                     <p class="text-amber-500 font-black uppercase tracking-[0.2em] text-xs mb-12">
-                        Clases Virtuales • Presencial en Barranquilla
+                        Clases Virtuales (Global) • Presencial en Barranquilla
                     </p>
                     <div class="flex flex-col sm:flex-row gap-6 justify-center">
                         <button onclick="showPage('programas')" class="bg-amber-500 text-white font-black px-10 py-5 rounded-2xl shadow-xl hover:bg-amber-600 transition-all transform hover:scale-105 uppercase tracking-widest text-xs">
-                            Programas Académicos
+                            Ver Programas
                         </button>
                         <button onclick="showPage('recursos')" class="bg-white/10 backdrop-blur-md border-2 border-white/40 text-white font-black px-10 py-5 rounded-2xl hover:bg-white hover:text-slate-900 transition-all uppercase tracking-widest text-xs">
                             Laboratorio Digital
@@ -151,23 +158,23 @@
                     <div class="order-2 md:order-1 text-center md:text-left">
                         <h2 class="text-4xl font-black mb-8 leading-tight">Compositor, Guitarrista <br>y Desarrollador</h2>
                         <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                            Mi carrera profesional une la ejecución técnica de la <strong>guitarra</strong> con el rigor de la <strong>composición</strong>. Como docente, desarrollo software que permite a mis alumnos dominar el lenguaje sonoro de manera lógica. Ofrezco formación integral <strong>virtual</strong> para todo el mundo y sesiones <strong>presenciales</strong> exclusivamente en <strong>Barranquilla, Colombia</strong>.
+                            Ofrezco una formación integral <strong>virtual</strong> para estudiantes en cualquier parte del mundo, y sesiones <strong>presenciales</strong> exclusivamente en <strong>Barranquilla, Colombia</strong>. Mi método une la ejecución técnica de la guitarra con el rigor analítico de la composición a través de software interactivo.
                         </p>
                         <div class="flex flex-wrap justify-center md:justify-start gap-10 mt-12">
                             <div class="border-l-4 border-amber-500 pl-6">
                                 <p class="text-4xl font-black text-slate-900">15+</p>
-                                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Años Trayectoria</p>
+                                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest italic">Años Trayectoria</p>
                             </div>
                             <div class="border-l-4 border-amber-500 pl-6">
                                 <p class="text-4xl font-black text-slate-900" id="total-tools-badge">0</p>
-                                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Apps Creadas</p>
+                                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest italic">Apps Creadas</p>
                             </div>
                         </div>
                     </div>
                     <div class="order-1 md:order-2 relative group">
                         <div class="absolute -inset-4 bg-amber-500/10 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
                         <div class="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
-                            <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=1000&q=80" alt="Composición y Guitarra" class="w-full h-[500px] object-cover">
+                            <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=1000&q=80" alt="Faceta Artística" class="w-full h-[500px] object-cover">
                             <div class="absolute bottom-0 left-0 right-0 p-10 bg-gradient-to-t from-slate-900 to-transparent text-center">
                                 <p class="text-white font-bold italic text-lg leading-snug">"La tecnología es la llave que explica la lógica de la música."</p>
                             </div>
@@ -181,15 +188,16 @@
         <div id="page-programas" class="page-content hidden py-24 bg-slate-50">
             <div class="container mx-auto max-w-6xl px-4 text-center">
                 <h2 class="text-4xl font-black mb-4 uppercase tracking-tighter">Programas de Formación</h2>
-                <p class="text-amber-600 font-bold uppercase tracking-widest text-[11px] mb-16">Modalidad Virtual Global • Presencial en Barranquilla</p>
+                <p class="text-amber-600 font-bold uppercase tracking-widest text-[11px] mb-16 italic">Modalidad Virtual Global • Presencial en Barranquilla</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
                     <div class="grid-card p-8 flex flex-col shadow-sm">
                         <h3 class="text-lg font-black mb-4 uppercase accent-color-primary">Armonía</h3>
                         <ul class="space-y-2 text-sm font-bold text-slate-600 flex-grow">
-                            <li>• Jazz</li>
+                            <li>• Jazz Avanzada</li>
                             <li>• Tradicional</li>
                             <li>• Modal</li>
+                            <li>• Teoría Musical</li>
                         </ul>
                     </div>
                     <div class="grid-card p-8 flex flex-col shadow-sm border-amber-500/30">
@@ -197,7 +205,7 @@
                         <ul class="space-y-2 text-sm font-bold text-slate-600 flex-grow">
                             <li>• Composición</li>
                             <li>• Guitarra y Técnica</li>
-                            <li>• Teoría Musical</li>
+                            <li>• Mentoría de Obra</li>
                         </ul>
                     </div>
                     <div class="grid-card p-8 flex flex-col shadow-sm">
@@ -208,65 +216,59 @@
                         </ul>
                     </div>
                     <div class="grid-card p-8 flex flex-col shadow-sm bg-slate-900 text-white">
-                        <h3 class="text-lg font-black mb-4 uppercase text-amber-500">Apoyo</h3>
+                        <h3 class="text-lg font-black mb-4 uppercase text-amber-500">Asesoría</h3>
                         <ul class="space-y-2 text-sm font-bold text-slate-300 flex-grow">
                             <li>• Refuerzo Académico</li>
-                            <li>• Mentoría</li>
+                            <li>• Análisis Formal</li>
                         </ul>
                     </div>
                 </div>
-                <button onclick="scrollToContact()" class="mt-12 bg-slate-900 text-white font-black px-10 py-4 rounded-2xl uppercase text-xs tracking-widest hover:bg-amber-600 transition-all">Solicitar Información</button>
             </div>
         </div>
 
         <!-- SECCIÓN: RECURSOS -->
         <div id="page-recursos" class="page-content hidden py-24">
-            <div class="container mx-auto max-w-6xl px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-2xl md:text-4xl font-black mb-4 uppercase tracking-tighter">HERRAMIENTAS INTERACTIVAS (<span id="resource-count-hero"></span> DISPONIBLES)</h2>
-                    <p class="text-slate-500 uppercase tracking-widest text-[10px] font-bold italic">Laboratorio Digital de Juan Miguel Ríos</p>
-                </div>
+            <div class="container mx-auto max-w-6xl px-4 text-center">
+                <h2 class="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tighter">HERRAMIENTAS INTERACTIVAS (<span id="resource-count-hero"></span> DISPONIBLES)</h2>
+                <p class="text-slate-500 uppercase tracking-widest text-[10px] font-bold italic mb-16">Laboratorio de Investigación y Pedagogía Musical</p>
                 <div class="flex flex-wrap justify-center gap-3 mb-16" id="resource-tabs"></div>
-                <div id="resources-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+                <div id="resources-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left"></div>
             </div>
         </div>
 
         <!-- SECCIÓN: ARTÍCULOS -->
         <div id="page-articulos" class="page-content hidden py-24">
-            <!-- (Contenido de artículos resumido por espacio, manteniendo lógica de árbol) -->
             <div class="container mx-auto max-w-6xl px-4 text-center">
-                 <h2 class="text-4xl font-black mb-16 uppercase tracking-tighter">Biblioteca de Conocimiento</h2>
-                 <div id="article-list-view" class="text-left space-y-4 max-w-3xl mx-auto">
-                    <!-- Ejemplo de árbol funcional -->
+                <h2 class="text-4xl font-black mb-16 uppercase tracking-tighter">Biblioteca de Conocimiento</h2>
+                <div id="article-list-view" class="max-w-3xl mx-auto space-y-4 text-left">
                     <div class="bg-white border rounded-2xl overflow-hidden shadow-sm">
                         <button class="w-full p-6 flex justify-between items-center font-black text-slate-800" onclick="toggleTree(this)">
                             🎹 Armonía y Análisis
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="3"/></svg>
                         </button>
                         <div class="article-content-body p-6 pt-0 border-t border-slate-50">
-                            <p class="text-slate-600 mb-4">Temas fundamentales sobre el sistema tonal y funcional.</p>
-                            <button onclick="viewFull('armonia-base')" class="text-amber-600 font-black uppercase text-[10px] tracking-widest hover:underline">Continuar leyendo →</button>
+                            <p class="text-slate-600 mb-4">Temas base sobre el sistema tonal y funcional.</p>
+                            <button onclick="viewFull('armonia-base')" class="text-amber-600 font-black uppercase text-[10px] tracking-widest hover:underline italic">Ver tema base →</button>
                         </div>
                     </div>
-                 </div>
-                 <!-- Vista Detalle Artículo -->
-                <div id="article-detail-view" class="hidden max-w-4xl mx-auto text-left">
+                </div>
+                <div id="article-detail-view" class="hidden max-w-4xl mx-auto text-left full-article-view">
                     <button onclick="backToArticles()" class="mb-8 flex items-center text-slate-400 font-black uppercase text-[10px] tracking-widest hover:text-amber-600 transition-colors">Regresar</button>
-                    <div id="full-art-content" class="bg-white rounded-[3rem] shadow-2xl p-10 md:p-16 border border-slate-100"></div>
+                    <div id="full-art-content" class="bg-white rounded-[3rem] shadow-2xl p-12 border border-slate-100"></div>
                 </div>
             </div>
         </div>
 
-        <!-- SECCIÓN: CONTACTO CON SELECTOR INTELIGENTE -->
+        <!-- SECCIÓN: CONTACTO CON SELECTOR OPTIMIZADO -->
         <section id="contacto" class="container mx-auto max-w-6xl px-4 py-32">
             <div class="bg-slate-900 rounded-[3rem] shadow-3xl overflow-hidden grid lg:grid-cols-2 border border-slate-800">
-                <div class="p-10 md:p-20 flex flex-col justify-center text-white text-center lg:text-left">
+                <div class="p-10 md:p-20 flex flex-col justify-center text-white lg:text-left text-center">
                     <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight italic">Iniciemos tu <span class="text-amber-500">sesión</span>.</h2>
                     <p class="text-blue-100/60 mb-6 text-lg font-medium leading-relaxed">
-                        Cursos 100% Virtuales. <br>
+                        Formación 100% Virtual (Mundial). <br>
                         Presencial únicamente en Barranquilla.
                     </p>
-                    <p class="text-blue-200/50 mb-10 text-sm">Reserva una charla informativa de 15 minutos sin costo. La notificación llegará directo a mi celular.</p>
+                    <p class="text-blue-200/50 mb-10 text-sm italic">Reserva una charla informativa de 15 min sin costo. Notificación directa a mi celular.</p>
                     <div class="flex items-center space-x-4 justify-center lg:justify-start">
                         <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-amber-500"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-width="2"/></svg></div>
                         <span class="font-bold text-sm">juanmiguel0927@gmail.com</span>
@@ -280,27 +282,27 @@
                             <input type="text" name="name" required class="form-input" placeholder="Tu nombre">
                         </div>
                         
-                        <!-- Smart Phone Field -->
+                        <!-- Selector Global Inteligente -->
                         <div class="space-y-2">
-                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Número de Celular</label>
-                            <div class="flex gap-2">
+                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Celular (Privado)</label>
+                            <div class="flex gap-2 relative">
                                 <div class="relative w-1/3">
-                                    <button type="button" onclick="toggleCountryDropdown()" id="selected-country" class="country-select-btn w-full justify-between">
+                                    <button type="button" onclick="toggleCountryDropdown()" id="country-btn" class="country-select-btn w-full justify-between">
                                         <span id="flag-display">🇨🇴</span>
                                         <span id="code-display" class="font-bold text-xs">+57</span>
                                     </button>
-                                    <div id="country-dropdown" class="absolute left-0 mt-2 w-64 max-h-64 bg-white border border-slate-200 rounded-xl shadow-2xl hidden z-50 overflow-y-auto">
-                                        <input type="text" id="country-filter" placeholder="Buscar país o código..." class="w-full p-3 text-xs border-b sticky top-0 bg-white outline-none">
-                                        <div id="country-list"></div>
+                                    <div id="country-dropdown" class="absolute left-0 mt-2 w-72 max-h-80 bg-white border border-slate-200 rounded-2xl shadow-2xl hidden z-50 flex flex-col overflow-hidden">
+                                        <input type="text" id="country-filter" placeholder="Buscar país o indicativo..." class="w-full p-4 text-xs border-b sticky top-0 bg-slate-50 outline-none font-bold">
+                                        <div id="country-list" class="overflow-y-auto flex-grow"></div>
                                     </div>
                                 </div>
-                                <input type="tel" name="phone" id="phone-input" required class="form-input flex-grow" placeholder="300 000 0000">
-                                <input type="hidden" name="full_phone" id="hidden-full-phone">
+                                <input type="tel" name="phone" id="phone-input" required class="form-input flex-grow" placeholder="Escribe el número...">
+                                <input type="hidden" name="full_phone" id="hidden-phone">
                             </div>
-                            <p id="country-detect-label" class="text-[9px] font-bold text-amber-600 uppercase tracking-widest ml-1"></p>
+                            <p id="detect-label" class="text-[9px] font-black text-amber-600 uppercase tracking-widest ml-1 italic"></p>
                         </div>
 
-                        <div><label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Correo</label><input type="email" name="email" required class="form-input" placeholder="correo@ejemplo.com"></div>
+                        <div><label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Email</label><input type="email" name="email" required class="form-input" placeholder="correo@ejemplo.com"></div>
                         <div><label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Mensaje</label><textarea name="message" rows="4" required class="form-input" placeholder="¿En qué puedo ayudarte?"></textarea></div>
                         <button type="submit" id="form-btn" class="w-full bg-slate-900 text-white font-black py-5 rounded-2xl shadow-xl hover:bg-amber-600 transition-all uppercase tracking-widest text-[10px]">Enviar Mensaje Directo</button>
                         <div id="form-result" class="hidden text-center font-bold text-sm mt-4"></div>
@@ -313,125 +315,149 @@
     <footer class="bg-white border-t py-20 text-center">
         <div class="container mx-auto max-w-6xl px-4">
             <img src="https://raw.githubusercontent.com/juanmiguel0927/academia/3398345231d83d088ad54095455e9642e1abd990/Logo.png" alt="Logo" class="h-20 w-20 mx-auto mb-6 rounded-full object-cover bg-slate-900 p-1">
-            <p class="text-slate-900 font-black uppercase tracking-tighter text-xl">Juan Miguel Ríos Redondo</p>
-            <p class="text-slate-400 text-[10px] mb-8 uppercase tracking-widest mt-2 font-black">Barranquilla, Colombia | 2026</p>
+            <p class="text-slate-900 font-black uppercase tracking-tighter text-xl leading-none">Juan Miguel Ríos Redondo</p>
+            <p class="text-slate-400 text-[10px] mb-8 uppercase tracking-widest mt-2 font-black italic">Barranquilla, Colombia | Global Virtual</p>
         </div>
     </footer>
 
     <script>
-        // DATA DE PAÍSES PARA EL SELECTOR
-        const countries = [
-            { n: "Colombia", c: "+57", f: "🇨🇴", p: "57" },
-            { n: "México", c: "+52", f: "🇲🇽", p: "52" },
-            { n: "España", c: "+34", f: "🇪🇸", p: "34" },
-            { n: "Argentina", c: "+54", f: "🇦🇷", p: "54" },
-            { n: "Estados Unidos", c: "+1", f: "🇺🇸", p: "1" },
-            { n: "Chile", c: "+56", f: "🇨🇱", p: "56" },
-            { n: "Perú", c: "+51", f: "🇵🇪", p: "51" },
-            { n: "Ecuador", c: "+593", f: "🇪🇨", p: "593" },
-            { n: "Panamá", c: "+507", f: "🇵🇦", p: "507" },
-            { n: "Venezuela", c: "+58", f: "🇻🇪", p: "58" },
-            { n: "Uruguay", c: "+598", f: "🇺🇾", p: "598" },
-            { n: "Costa Rica", c: "+506", f: "🇨🇷", p: "506" },
-            { n: "Guatemala", c: "+502", f: "🇬🇹", p: "502" }
-        ].sort((a, b) => a.n.localeCompare(b.n));
+        // Listado de países comunes para mostrar primero
+        const topCountries = [
+            {n:"Colombia",c:"+57",f:"🇨🇴",p:"57"},
+            {n:"México",c:"+52",f:"🇲🇽",p:"52"},
+            {n:"Argentina",c:"+54",f:"🇦🇷",p:"54"},
+            {n:"España",c:"+34",f:"🇪🇸",p:"34"},
+            {n:"Chile",c:"+56",f:"🇨🇱",p:"56"}
+        ];
 
-        // LÓGICA DEL SELECTOR INTELIGENTE
-        let currentCountry = countries.find(c => c.p === "57");
+        // Listado global completo de países
+        const globalCountries = [
+            ...topCountries,
+            {n:"Afganistán",c:"+93",f:"🇦🇫",p:"93"},{n:"Albania",c:"+355",f:"🇦🇱",p:"355"},{n:"Alemania",c:"+49",f:"🇩🇪",p:"49"},{n:"Andorra",c:"+376",f:"🇦🇩",p:"376"},
+            {n:"Angola",c:"+244",f:"🇦🇴",p:"244"},{n:"Argelia",c:"+213",f:"🇩🇿",p:"213"},{n:"Armenia",c:"+374",f:"🇦🇲",p:"374"},{n:"Aruba",c:"+297",f:"🇦🇼",p:"297"},
+            {n:"Australia",c:"+61",f:"🇦🇺",p:"61"},{n:"Austria",c:"+43",f:"🇦🇹",p:"43"},{n:"Azerbaiyán",c:"+994",f:"🇦🇿",p:"994"},{n:"Bahamas",c:"+1",f:"🇧🇸",p:"1242"},
+            {n:"Baréin",c:"+973",f:"🇧🇭",p:"973"},{n:"Bangladesh",c:"+880",f:"🇧🇩",p:"880"},{n:"Barbados",c:"+1",f:"🇧🇧",p:"1246"},{n:"Bélgica",c:"+32",f:"🇧🇪",p:"32"},
+            {n:"Belice",c:"+501",f:"🇧🇿",p:"501"},{n:"Benín",c:"+229",f:"🇧🇯",p:"229"},{n:"Bielorrusia",c:"+375",f:"🇧🇾",p:"375"},{n:"Bolivia",c:"+591",f:"🇧🇴",p:"591"},
+            {n:"Bosnia",c:"+387",f:"🇧🇦",p:"387"},{n:"Botsuana",c:"+267",f:"🇧🇼",p:"267"},{n:"Brasil",c:"+55",f:"🇧🇷",p:"55"},{n:"Bulgaria",c:"+359",f:"🇧🇬",p:"359"},
+            {n:"Canadá",c:"+1",f:"🇨🇦",p:"1"},{n:"China",c:"+86",f:"🇨🇳",p:"86"},{n:"Chipre",c:"+357",f:"🇨🇾",p:"357"},{n:"Corea del Sur",c:"+82",f:"🇰🇷",p:"82"},
+            {n:"Costa Rica",c:"+506",f:"🇨🇷",p:"506"},{n:"Croacia",c:"+385",f:"🇭🇷",p:"385"},{n:"Cuba",c:"+53",f:"🇨🇺",p:"53"},{n:"Dinamarca",c:"+45",f:"🇩🇰",p:"45"},
+            {n:"Ecuador",c:"+593",f:"🇪🇨",p:"593"},{n:"Egipto",c:"+20",f:"🇪🇬",p:"20"},{n:"El Salvador",c:"+503",f:"🇸🇻",p:"503"},{n:"Emiratos Árabes",c:"+971",f:"🇦🇪",p:"971"},
+            {n:"EE.UU.",c:"+1",f:"🇺🇸",p:"1"},{n:"Estonia",c:"+372",f:"🇪🇪",p:"372"},{n:"Etiopía",c:"+251",f:"🇪🇹",p:"251"},{n:"Filipinas",c:"+63",f:"🇵🇭",p:"63"},
+            {n:"Finlandia",c:"+358",f:"🇫🇮",p:"358"},{n:"Francia",c:"+33",f:"🇫🇷",p:"33"},{n:"Georgia",c:"+995",f:"🇬🇪",p:"995"},{n:"Ghana",c:"+233",f:"🇬🇭",p:"233"},
+            {n:"Grecia",c:"+30",f:"🇬🇷",p:"30"},{n:"Guatemala",c:"+502",f:"🇬🇹",p:"502"},{n:"Haití",c:"+509",f:"🇭🇹",p:"509"},{n:"Honduras",c:"+504",f:"🇭🇳",p:"504"},
+            {n:"Hong Kong",c:"+852",f:"🇭🇰",p:"852"},{n:"Hungría",c:"+36",f:"🇭🇺",p:"36"},{n:"India",c:"+91",f:"🇮🇳",p:"91"},{n:"Indonesia",c:"+62",f:"🇮🇩",p:"62"},
+            {n:"Irak",c:"+964",f:"🇮🇶",p:"964"},{n:"Irán",c:"+98",f:"🇮🇷",p:"98"},{n:"Irlanda",c:"+353",f:"🇮🇪",p:"353"},{n:"Israel",c:"+972",f:"🇮🇱",p:"972"},
+            {n:"Italia",c:"+39",f:"🇮🇹",p:"39"},{n:"Jamaica",c:"+1",f:"🇯🇲",p:"1876"},{n:"Japón",c:"+81",f:"🇯🇵",p:"81"},{n:"Jordania",c:"+962",f:"🇯🇴",p:"962"},
+            {n:"Kazajistán",c:"+7",f:"🇰🇿",p:"7"},{n:"Kenia",c:"+254",f:"🇰🇪",p:"254"},{n:"Kuwait",c:"+965",f:"🇰🇼",p:"965"},{n:"Líbano",c:"+961",f:"🇱🇧",p:"961"},
+            {n:"Lituania",c:"+370",f:"🇱🇹",p:"370"},{n:"Luxemburgo",c:"+352",f:"🇱🇺",p:"352"},{n:"Marruecos",c:"+212",f:"🇲🇦",p:"212"},{n:"Nicaragua",c:"+505",f:"🇳🇮",p:"505"},
+            {n:"Noruega",c:"+47",f:"🇳🇴",p:"47"},{n:"Nueva Zelanda",c:"+64",f:"🇳🇿",p:"64"},{n:"Países Bajos",c:"+31",f:"🇳🇱",p:"31"},{n:"Palestina",c:"+970",f:"🇵🇸",p:"970"},
+            {n:"Panamá",c:"+507",f:"🇵🇦",p:"507"},{n:"Paraguay",c:"+595",f:"🇵🇾",p:"595"},{n:"Perú",c:"+51",f:"🇵🇪",p:"51"},{n:"Polonia",c:"+48",f:"🇵🇱",p:"48"},
+            {n:"Portugal",c:"+351",f:"🇵🇹",p:"351"},{n:"Puerto Rico",c:"+1",f:"🇵🇷",p:"1787"},{n:"Catar",c:"+974",f:"🇶🇦",p:"974"},{n:"Reino Unido",c:"+44",f:"🇬🇧",p:"44"},
+            {n:"Rep. Dominicana",c:"+1",f:"🇩🇴",p:"1809"},{n:"Rumania",c:"+40",f:"🇷🇴",p:"40"},{n:"Rusia",c:"+7",f:"🇷🇺",p:"7"},{n:"Sudáfrica",c:"+27",f:"🇿🇦",p:"27"},
+            {n:"Suecia",c:"+46",f:"🇸🇪",p:"46"},{n:"Suiza",c:"+41",f:"🇨🇭",p:"41"},{n:"Tailandia",c:"+66",f:"🇹🇭",p:"66"},{n:"Turquía",c:"+90",f:"🇹🇷",p:"90"},
+            {n:"Ucrania",c:"+380",f:"🇺🇦",p:"380"},{n:"Uruguay",c:"+598",f:"🇺🇾",p:"598"},{n:"Vaticano",c:"+379",f:"🇻🇦",p:"379"},{n:"Venezuela",c:"+58",f:"🇻🇪",p:"58"}
+        ];
 
-        function toggleCountryDropdown() {
-            document.getElementById('country-dropdown').classList.toggle('hidden');
-        }
+        let currentCountry = topCountries[0];
 
-        function selectCountry(country) {
-            currentCountry = country;
-            document.getElementById('flag-display').textContent = country.f;
-            document.getElementById('code-display').textContent = country.c;
+        function toggleCountryDropdown() { document.getElementById('country-dropdown').classList.toggle('hidden'); }
+
+        function setCountry(c) {
+            currentCountry = c;
+            document.getElementById('flag-display').textContent = c.f;
+            document.getElementById('code-display').textContent = c.c;
+            document.getElementById('detect-label').textContent = `Ubicación detectada: ${c.n}`;
             document.getElementById('country-dropdown').classList.add('hidden');
-            document.getElementById('country-detect-label').textContent = country.n.toUpperCase();
         }
 
-        function initPhoneLogic() {
+        function initLogic() {
             const list = document.getElementById('country-list');
             const filter = document.getElementById('country-filter');
-            const phoneInput = document.getElementById('phone-input');
+            const phone = document.getElementById('phone-input');
 
-            function render(f = "") {
+            function render(q = "") {
                 list.innerHTML = "";
-                countries.filter(c => c.n.toLowerCase().includes(f.toLowerCase()) || c.c.includes(f))
+                // Si no hay búsqueda, mostramos el Top 5
+                const source = q.trim() === "" ? topCountries : globalCountries;
+                
+                source.filter(c => c.n.toLowerCase().includes(q.toLowerCase()) || c.c.includes(q))
                 .forEach(c => {
-                    const item = document.createElement('div');
-                    item.className = "p-3 text-xs hover:bg-slate-50 cursor-pointer flex justify-between items-center border-b border-slate-50 font-bold";
-                    item.innerHTML = `<span>${c.f} ${c.n}</span><span class="text-amber-600">${c.c}</span>`;
-                    item.onclick = () => selectCountry(c);
-                    list.appendChild(item);
+                    const d = document.createElement('div');
+                    d.className = "p-4 text-xs font-bold hover:bg-slate-50 cursor-pointer flex justify-between items-center border-b border-slate-50";
+                    d.innerHTML = `<span>${c.f} ${c.n}</span><span class="text-amber-600">${c.c}</span>`;
+                    d.onclick = () => {
+                        setCountry(c);
+                        filter.value = "";
+                        render();
+                    };
+                    list.appendChild(d);
                 });
             }
 
             filter.oninput = (e) => render(e.target.value);
             
-            // DETECCIÓN AUTOMÁTICA AL ESCRIBIR
-            phoneInput.oninput = (e) => {
-                const val = e.target.value;
+            // DETECCIÓN AUTOMÁTICA AL ESCRIBIR NÚMERO
+            phone.oninput = (e) => {
+                const val = e.target.value.replace(/\D/g, "");
                 if (val.length >= 1) {
-                    const match = countries.find(c => val.startsWith(c.p));
-                    if (match && match !== currentCountry) {
-                        selectCountry(match);
-                    }
+                    // Buscar en toda la lista global
+                    const match = globalCountries.slice().sort((a,b) => b.p.length - a.p.length).find(c => val.startsWith(c.p));
+                    if (match && match.p !== currentCountry.p) setCountry(match);
                 }
             };
 
             document.addEventListener('click', (e) => {
-                if (!e.target.closest('#selected-country') && !e.target.closest('#country-dropdown')) {
-                    document.getElementById('country-dropdown').classList.add('hidden');
-                }
+                if (!e.target.closest('#country-btn') && !e.target.closest('#country-dropdown')) document.getElementById('country-dropdown').classList.add('hidden');
             });
-
             render();
         }
 
-        // LÓGICA DE NAVEGACIÓN Y OTROS
+        // Lógica de recursos y navegación
         const resData = {
             "Teoría & Composición": [
                 { title: "Bloques Armónicos", url: "https://juanmiguel0927.github.io/BloqueArmonicoPro/", desc: "Técnica 4-way closed.", icon: "🧱" },
-                { title: "Teoría Neo-Riemanniana", url: "https://juanmiguel0927.github.io/TeoriaNeo-Riemanniana/", desc: "Relaciones tonales.", icon: "🔄" },
-                { title: "Dodecafonismo", url: "https://juanmiguel0927.github.io/GeneradorDodecafonico/", desc: "Series 12 tonos.", icon: "🔢" },
+                { title: "Teoría Neo-Riemanniana", url: "https://juanmiguel0927.github.io/TeoriaNeo-Riemanniana/", desc: "Transformación de acordes.", icon: "🔄" },
+                { title: "Generador Dodecafónico", url: "https://juanmiguel0927.github.io/GeneradorDodecafonico/", desc: "Series de 12 tonos.", icon: "🔢" },
                 { title: "Isorritmia", url: "https://juanmiguel0927.github.io/GeneradorDeIsorritmia/", desc: "Composición rítmica.", icon: "🧬" },
                 { title: "Navegación Modal", url: "https://juanmiguel0927.github.io/NavegacionModal/", desc: "Rutas entre modos.", icon: "🧭" },
                 { title: "Duración Pro", url: "https://juanmiguel0927.github.io/DuracionMusicalPro/", desc: "Cálculo técnico BPM.", icon: "⏱️" }
             ],
             "Jazz & Impro": [
-                { title: "Barry Harris", url: "https://juanmiguel0927.github.io/BarryHarrisArmonia/", desc: "Método Harris.", icon: "🎹" },
-                { title: "Laboratorio Jazz", url: "https://juanmiguel0927.github.io/LaboratorioLenguajeDeJazz/", desc: "Práctica fraseo.", icon: "🧪" },
+                { title: "Barry Harris", url: "https://juanmiguel0927.github.io/BarryHarrisArmonia/", desc: "Método y escalas Harris.", icon: "🎹" },
+                { title: "Laboratorio Jazz", url: "https://juanmiguel0927.github.io/LaboratorioLenguajeDeJazz/", desc: "Práctica de fraseo.", icon: "🧪" },
                 { title: "Modos", url: "https://juanmiguel0927.github.io/LaboratorioDeModos/", desc: "Exploración sonora.", icon: "🎨" },
-                { title: "Menor Melódica", url: "https://juanmiguel0927.github.io/MenorMelodico/", desc: "Estudio Jazz.", icon: "🌑" },
-                { title: "Resoluciones Blues", url: "https://juanmiguel0927.github.io/ResolucionesBlues/", desc: "Licks esenciales.", icon: "🎸" },
+                { title: "Menor Melódica", url: "https://juanmiguel0927.github.io/MenorMelodico/", desc: "Aplicaciones en Jazz.", icon: "🌑" },
+                { title: "Resoluciones Blues", url: "https://juanmiguel0927.github.io/ResolucionesBlues/", desc: "Licks armónicos.", icon: "🎸" },
                 { title: "Pentatónicas", url: "https://juanmiguel0927.github.io/Pentatonicas/", desc: "Relación escala-acorde.", icon: "🖐️" },
-                { title: "GMC", url: "https://juanmiguel0927.github.io/GMC/", desc: "Creative Chordal Harmony.", icon: "📖" }
+                { title: "GMC", url: "https://juanmiguel0927.github.io/GMC/", desc: "Guía Mick Goodrick.", icon: "📖" }
             ],
             "Habilidades": [
-                { title: "Formar Oído Pro", url: "https://juanmiguel0927.github.io/FormarOidoPro/", desc: "Oído funcional.", icon: "👂" },
-                { title: "Lab. Rítmico", url: "https://juanmiguel0927.github.io/Ritmo/", desc: "Música afrocaribeña.", icon: "👂" },
-                { title: "Ritmo y Metro", url: "https://juanmiguel0927.github.io/Ritmo-Metro/", desc: "Subdivisiones.", icon: "🥁" },
-                { title: "Sight-Reading", url: "https://juanmiguel0927.github.io/LecturaAPrimeraVista/", desc: "Lectura guitarra.", icon: "📄" },
-                { title: "Lectura Rápida", url: "https://juanmiguel0927.github.io/LecturaRapida/", desc: "Técnica español.", icon: "⚡" }
+                { title: "Formar Oído Pro", url: "https://juanmiguel0927.github.io/FormarOidoPro/", desc: "Desarrollo funcional.", icon: "👂" },
+                { title: "Laboratorio Rítmico", url: "https://juanmiguel0927.github.io/Ritmo/", desc: "Música afrocaribeña.", icon: "👂" },
+                { title: "Ritmo y Metro", url: "https://juanmiguel0927.github.io/Ritmo-Metro/", desc: "Metrónomo avanzado.", icon: "🥁" },
+                { title: "Sight-Reading", url: "https://juanmiguel0927.github.io/LecturaAPrimeraVista/", desc: "Ejercicios guitarra.", icon: "📄" },
+                { title: "Lectura Rápida", url: "https://juanmiguel0927.github.io/LecturaRapida/", desc: "Técnica del español.", icon: "⚡" }
             ],
-            "Gestión Profesional": [
-                { title: "CV Interactivo", url: "https://juanmiguel0927.github.io/CurriculumVitae/", desc: "Hoja de vida.", icon: "💼" },
+            "Gestión": [
+                { title: "CV Interactivo", url: "https://juanmiguel0927.github.io/CurriculumVitae/", desc: "Perfil profesional.", icon: "💼" },
                 { title: "Bibliografía", url: "https://juanmiguel0927.github.io/Bibliografia/", desc: "Fuentes de estudio.", icon: "📚" }
             ],
-            "Billar Pool": [
+            "Billar": [
                 { title: "Técnica Pool", url: "https://juanmiguel0927.github.io/Tecnica/", desc: "Rutinas técnicas.", icon: "🎱" },
                 { title: "Ejercicios", url: "https://juanmiguel0927.github.io/Pool/", desc: "Retos de mesa.", icon: "🎯" },
-                { title: "Examen Pool", url: "https://juanmiguel0927.github.io/ExamenPool/", desc: "Test de nivel.", icon: "📝" }
+                { title: "Examen Pool", url: "https://juanmiguel0927.github.io/ExamenPool/", desc: "Pruebas de nivel.", icon: "📝" }
             ],
-            "Estilo de Vida": [
+            "Vida": [
                 { title: "Piloto", url: "https://juanmiguel0927.github.io/Piloto/", desc: "Audiolibros.", icon: "✈️" },
                 { title: "Finanzas", url: "https://juanmiguel0927.github.io/Finanzas/", desc: "Gestión personal.", icon: "💰" },
-                { title: "Ahorro Flex", url: "https://juanmiguel0927.github.io/AhorroFlex/", desc: "Metas ahorro.", icon: "🐷" },
-                { title: "Lunea", url: "https://juanmiguel0927.github.io/Lunea/", desc: "Ciclo menstrual.", icon: "🌙" },
-                { title: "Asados", url: "https://juanmiguel0927.github.io/Asados/", desc: "Recetas parrilla.", icon: "🥩" }
+                { title: "Ahorro Flex", url: "https://juanmiguel0927.github.io/AhorroFlex/", desc: "Metas de ahorro.", icon: "🐷" },
+                { title: "Lunea", url: "https://juanmiguel0927.github.io/Lunea/", desc: "Control ciclo menstrual.", icon: "🌙" },
+                { title: "Asados", url: "https://juanmiguel0927.github.io/Asados/", desc: "Guías y recetas.", icon: "🥩" }
             ]
+        };
+
+        const artCont = {
+            'armonia-base': `<h2 class="text-3xl font-black mb-6">El Sistema Tonal Moderno</h2><div class="prose prose-slate text-slate-600 text-lg space-y-6"><p>La armonía tonal es la base de la música occidental. Se fundamenta en la jerarquía y las funciones armónicas de tensión y resolución.</p></div>`
         };
 
         function showPage(p) {
@@ -440,6 +466,22 @@
             document.querySelectorAll('.main-nav-link').forEach(n => n.classList.remove('active'));
             document.getElementById('btn-' + p)?.classList.add('active');
             window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function viewFull(id) {
+            document.getElementById('full-art-content').innerHTML = artCont[id] || '<p class="italic text-slate-400">Contenido próximamente...</p>';
+            document.getElementById('article-list-view').classList.add('hidden');
+            document.getElementById('article-detail-view').classList.remove('hidden');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+        function backToArticles() {
+            document.getElementById('article-list-view').classList.remove('hidden');
+            document.getElementById('article-detail-view').classList.add('hidden');
+        }
+        function toggleTree(b) {
+            const c = b.nextElementSibling;
+            b.querySelector('svg').classList.toggle('rotate-180');
+            c.classList.toggle('open');
         }
 
         function initRes() {
@@ -466,7 +508,7 @@
             const g = document.getElementById('resources-grid');
             g.innerHTML = '';
             resData[c].forEach(x => {
-                g.innerHTML += `<a href="${x.url}" target="_blank" class="grid-card p-8 flex flex-col border-slate-100"><div class="text-4xl mb-4">${x.icon}</div><h4 class="font-black text-lg mb-2 text-slate-900">${x.title}</h4><p class="text-sm text-slate-500 mb-6 leading-relaxed">${x.desc}</p><span class="text-[10px] font-black text-amber-600 uppercase tracking-widest mt-auto">Abrir Herramienta →</span></a>`;
+                g.innerHTML += `<a href="${x.url}" target="_blank" class="grid-card p-8 flex flex-col border-slate-100 hover:border-amber-500/50"><div class="text-4xl mb-4">${x.icon}</div><h4 class="font-black text-lg mb-2 text-slate-900">${x.title}</h4><p class="text-sm text-slate-500 mb-6 leading-relaxed text-left">${x.desc}</p><span class="text-[10px] font-black text-amber-600 uppercase tracking-widest mt-auto">Abrir Herramienta →</span></a>`;
             });
         }
 
@@ -475,24 +517,19 @@
             e.preventDefault();
             const b = document.getElementById('form-btn');
             const r = document.getElementById('form-result');
-            document.getElementById('hidden-full-phone').value = currentCountry.c + " " + document.getElementById('phone-input').value;
+            document.getElementById('hidden-phone').value = `${currentCountry.c} ${document.getElementById('phone-input').value}`;
             b.disabled = true; b.textContent = 'Enviando...';
             const resp = await fetch(cForm.action, { method: 'POST', body: new FormData(cForm), headers: { 'Accept': 'application/json' } });
-            if (resp.ok) { r.textContent = "¡Enviado! Me pondré en contacto pronto."; r.className = "block text-green-600 font-bold mt-4"; cForm.reset(); } 
+            if (resp.ok) { r.textContent = "¡Enviado con éxito! Te contactaré pronto."; r.className = "block text-green-600 font-bold mt-4"; cForm.reset(); } 
             else { r.textContent = "Error al enviar. Intenta de nuevo."; r.className = "block text-red-600 font-bold mt-4"; }
             b.disabled = false; b.textContent = 'Enviar Mensaje Directo';
             r.classList.remove('hidden');
         };
 
-        function toggleTree(b) {
-            const c = b.nextElementSibling;
-            b.querySelector('svg').classList.toggle('rotate-180');
-            c.classList.toggle('open');
-        }
-        function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
+        function toggleMobileMenu() { document.getElementById('mobile-menu')?.classList.toggle('hidden'); }
         function scrollToContact() { document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' }); }
 
-        document.addEventListener('DOMContentLoaded', () => { initRes(); initPhoneLogic(); selectCountry(currentCountry); });
+        document.addEventListener('DOMContentLoaded', () => { initRes(); initLogic(); setCountry(currentCountry); });
     </script>
 </body>
 </html>
