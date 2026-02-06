@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juan Miguel Ríos | Guitarra, Composición y Tecnología Musical</title>
-    <meta name="description" content="Formación musical avanzada: virtual a nivel global y presencial en Barranquilla. Recursos interactivos y artículos especializados.">
+    <title>Juan Miguel Ríos | Smart Music Lab & Formación Integral</title>
+    <meta name="description" content="Formación musical de alto nivel con tecnología de vanguardia. Explora el Smart Music Lab con 28 herramientas interactivas.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-blue: #0f172a; 
-            --secondary-gold: #d4af37; 
+            --secondary-gold: #fbbf24; 
             --text-dark: #1e293b;
             --bg-light: #f8fafc;
         }
@@ -26,12 +26,9 @@
         
         h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
 
-        .hero-title { text-shadow: 0 4px 15px rgba(0,0,0,0.8); }
-        .hero-text { text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
-
         .hero-bg {
-            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), 
-                        url('https://images.unsplash.com/photo-1550291652-6ea9114a47b1?auto=format&fit=crop&w=2000') no-repeat center center/cover;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.95)), 
+                        url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=2000') no-repeat center center/cover;
             background-attachment: fixed;
         }
 
@@ -45,83 +42,75 @@
             border-bottom-color: var(--secondary-gold);
         }
 
+        .glass-btn {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+        .glass-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .progression-card {
+            background: white;
+            border-left: 4px solid #e2e8f0;
+            transition: all 0.4s ease;
+        }
+        .progression-card:hover {
+            border-left-color: var(--secondary-gold);
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+        }
+
         .grid-card {
             border: 1px solid #e2e8f0;
             background: white;
             transition: all 0.3s ease;
             border-radius: 1.5rem;
+            display: flex;
+            flex-direction: column;
         }
         .grid-card:hover {
             border-color: var(--secondary-gold);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15);
-            transform: translateY(-4px);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
         }
 
-        .article-content-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-        }
-        .article-content-body.open { max-height: 2000px; }
-
-        .form-input {
-            width: 100%;
-            padding: 0.9rem 1.2rem;
-            border: 1.5px solid #cbd5e1;
-            border-radius: 0.75rem;
-            transition: all 0.2s;
-            outline: none;
-            background: white;
-        }
-        .form-input:focus { border-color: var(--secondary-gold); box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1); }
-
-        .country-select-btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 0.9rem;
-            border: 1.5px solid #cbd5e1;
-            border-radius: 0.75rem;
-            background: white;
-            cursor: pointer;
-            min-width: 110px;
-            transition: all 0.2s;
-        }
-
-        #country-dropdown {
-            scrollbar-width: thin;
-            scrollbar-color: var(--secondary-gold) #f1f5f9;
-        }
-
-        .logo-nav { background-color: #0f172a; padding: 2px; }
-        .full-article-view { animation: slideIn 0.4s ease-out; }
-        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .logo-nav { background-color: #0f172a; padding: 4px; }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Header Navigation -->
-    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200 shadow-sm">
-        <div class="container mx-auto max-w-6xl px-4 text-sm md:text-base">
-            <div class="flex items-center justify-between h-20">
-                <a href="#" class="flex items-center space-x-3" onclick="showPage('inicio')">
-                    <img src="https://raw.githubusercontent.com/juanmiguel0927/academia/3398345231d83d088ad54095455e9642e1abd990/Logo.png" alt="Logo JMR" class="h-14 w-14 rounded-full border border-gray-100 object-cover bg-slate-900 logo-nav">
-                    <div class="flex flex-col text-left">
-                        <span class="font-black text-slate-900 tracking-tight uppercase text-xs md:text-sm leading-tight">Juan Miguel Ríos</span>
-                        <span class="text-[10px] uppercase tracking-widest text-amber-600 font-bold">Música & Tecnología</span>
-                    </div>
-                </a>
-                <nav class="hidden lg:flex space-x-8 items-center uppercase font-black text-[11px] tracking-widest">
-                    <button onclick="showPage('inicio')" id="btn-inicio" class="main-nav-link active">Inicio</button>
-                    <button onclick="showPage('programas')" id="btn-programas" class="main-nav-link">Programas</button>
-                    <button onclick="showPage('articulos')" id="btn-articulos" class="main-nav-link">Artículos</button>
-                    <button onclick="showPage('recursos')" id="btn-recursos" class="main-nav-link">Recursos</button>
-                    <a href="#contacto" class="bg-slate-900 text-white px-6 py-2.5 rounded-full hover:bg-amber-600 transition-all shadow-lg">Contacto</a>
-                </nav>
-                <button class="lg:hidden p-2 text-slate-900" onclick="toggleMobileMenu()">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7" stroke-width="2" stroke-linecap="round"/></svg>
-                </button>
-            </div>
+    <header class="bg-white/90 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-100 shadow-sm">
+        <div class="container mx-auto max-w-6xl px-4 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-4" onclick="showPage('inicio')">
+                <img src="https://raw.githubusercontent.com/juanmiguel0927/academia/3398345231d83d088ad54095455e9642e1abd990/Logo.png" alt="Logo JMR" class="h-12 w-12 rounded-full object-cover bg-slate-900 logo-nav shadow-lg">
+                <div class="flex flex-col text-left">
+                    <span class="font-black text-slate-900 tracking-tight uppercase text-sm leading-tight">Juan Miguel Ríos</span>
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-amber-600 font-bold">Música & Tecnología</span>
+                </div>
+            </a>
+            
+            <nav class="hidden lg:flex space-x-8 items-center uppercase font-black text-[10px] tracking-[0.15em]">
+                <button onclick="showPage('inicio')" id="btn-inicio" class="main-nav-link active">Inicio</button>
+                <button onclick="showPage('programas')" id="btn-programas" class="main-nav-link">Programas</button>
+                <button onclick="showPage('recursos')" id="btn-recursos" class="main-nav-link">Smart Music Lab</button>
+                <a href="#contacto" class="bg-slate-900 text-white px-8 py-3 rounded-full hover:bg-amber-500 hover:text-slate-900 transition-all shadow-md">Contacto</a>
+            </nav>
+
+            <button class="lg:hidden p-2 text-slate-900" onclick="toggleMobileMenu()">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full p-8 shadow-2xl flex flex-col space-y-6">
+            <button onclick="showPage('inicio'); toggleMobileMenu()" class="text-left font-black uppercase text-xs tracking-widest text-slate-600">Inicio</button>
+            <button onclick="showPage('programas'); toggleMobileMenu()" class="text-left font-black uppercase text-xs tracking-widest text-slate-600">Formación por Niveles</button>
+            <button onclick="showPage('recursos'); toggleMobileMenu()" class="text-left font-black uppercase text-xs tracking-widest text-slate-600">Smart Music Lab</button>
+            <a href="#contacto" onclick="toggleMobileMenu()" class="bg-slate-900 text-white text-center py-4 rounded-2xl font-black uppercase text-xs tracking-widest">Contacto Directo</a>
         </div>
     </header>
 
@@ -129,336 +118,213 @@
 
         <!-- SECCIÓN: INICIO -->
         <div id="page-inicio" class="page-content">
-            <section class="hero-bg text-white py-28 md:py-48 flex items-center justify-center text-center">
-                <div class="container mx-auto max-w-4xl px-4">
-                    <img src="https://raw.githubusercontent.com/juanmiguel0927/academia/3398345231d83d088ad54095455e9642e1abd990/Logo.png" alt="Logo" class="h-44 w-44 mx-auto mb-10 rounded-full border-4 border-white/20 shadow-2xl bg-slate-900">
-                    <h1 class="hero-title text-5xl md:text-8xl font-black tracking-tight leading-tight mb-8">
-                        La Ciencia del Sonido, <br>
-                        <span class="text-amber-400 italic">el Arte de Crear.</span>
+            <section class="hero-bg text-white min-h-[90vh] flex items-center justify-center text-center px-4">
+                <div class="max-w-4xl">
+                    <div class="inline-block px-4 py-1.5 mb-8 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-[10px] font-black uppercase tracking-[0.3em] text-amber-400">
+                        Pedagogía Musical del Siglo XXI
+                    </div>
+                    <h1 class="text-6xl md:text-9xl font-black tracking-tighter leading-[0.9] mb-10 italic">
+                        Sonido, <br>
+                        <span class="text-amber-400">el Arte de Crear.</span>
                     </h1>
-                    <p class="hero-text text-xl md:text-2xl text-blue-50 font-medium mb-4 max-w-2xl mx-auto leading-relaxed">
-                        Formación musical avanzada con tecnología interactiva.
+                    <p class="text-lg md:text-2xl text-slate-300 font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
+                        Formación integral con metodología estructurada y herramientas tecnológicas de vanguardia.
                     </p>
-                    <p class="text-amber-500 font-black uppercase tracking-[0.2em] text-xs mb-12">
-                        Clases Virtuales (Global) • Presencial en Barranquilla
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                        <button onclick="showPage('programas')" class="bg-amber-500 text-white font-black px-10 py-5 rounded-2xl shadow-xl hover:bg-amber-600 transition-all transform hover:scale-105 uppercase tracking-widest text-xs">
+                    <div class="flex flex-col sm:flex-row gap-5 justify-center">
+                        <button onclick="showPage('programas')" class="bg-amber-400 text-slate-900 font-black px-12 py-5 rounded-2xl shadow-2xl hover:bg-white transition-all transform hover:-translate-y-1 uppercase tracking-widest text-xs">
                             Ver Programas
                         </button>
-                        <button onclick="showPage('recursos')" class="bg-white/10 backdrop-blur-md border-2 border-white/40 text-white font-black px-10 py-5 rounded-2xl hover:bg-white hover:text-slate-900 transition-all uppercase tracking-widest text-xs">
-                            Laboratorio Digital
+                        <button onclick="showPage('recursos')" class="glass-btn text-white font-black px-12 py-5 rounded-2xl transition-all flex items-center justify-center gap-3 uppercase tracking-widest text-xs">
+                            <span>Smart Music Lab</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.628.282a2 2 0 01-1.806 0l-.628-.282a6 6 0 00-3.86-.517l-2.387.477a2 2 0 00-1.022.547m0 0V19a2 2 0 002 2h10a2 2 0 002-2v-3.572M8.445 14.891A1 1 0 0010 14.5a.75.75 0 011.5 0 1 1 0 102 0 .75.75 0 011.5 0 1 1 0 001.555.609" stroke-width="2" stroke-linecap="round"/></svg>
                         </button>
-                    </div>
-                </div>
-            </section>
-
-            <section class="container mx-auto max-w-6xl px-4 py-24">
-                <div class="grid md:grid-cols-2 gap-20 items-center">
-                    <div class="order-2 md:order-1 text-center md:text-left">
-                        <h2 class="text-4xl font-black mb-8 leading-tight">Compositor, Guitarrista <br>y Desarrollador</h2>
-                        <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                            Ofrezco una formación integral <strong>virtual</strong> para estudiantes en cualquier parte del mundo, y sesiones <strong>presenciales</strong> exclusivamente en <strong>Barranquilla, Colombia</strong>. Mi método une la ejecución técnica de la guitarra con el rigor analítico de la composición a través de software interactivo.
-                        </p>
-                        <div class="flex flex-wrap justify-center md:justify-start gap-10 mt-12">
-                            <div class="border-l-4 border-amber-500 pl-6">
-                                <p class="text-4xl font-black text-slate-900">15+</p>
-                                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest italic">Años Trayectoria</p>
-                            </div>
-                            <div class="border-l-4 border-amber-500 pl-6">
-                                <p class="text-4xl font-black text-slate-900" id="total-tools-badge">0</p>
-                                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest italic">Apps Creadas</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="order-1 md:order-2 relative group">
-                        <div class="absolute -inset-4 bg-amber-500/10 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
-                        <div class="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
-                            <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=1000&q=80" alt="Faceta Artística" class="w-full h-[500px] object-cover">
-                            <div class="absolute bottom-0 left-0 right-0 p-10 bg-gradient-to-t from-slate-900 to-transparent text-center">
-                                <p class="text-white font-bold italic text-lg leading-snug">"La tecnología es la llave que explica la lógica de la música."</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>
         </div>
 
-        <!-- SECCIÓN: PROGRAMAS -->
+        <!-- SECCIÓN: PROGRAMAS (Narrativa) -->
         <div id="page-programas" class="page-content hidden py-24 bg-slate-50">
-            <div class="container mx-auto max-w-6xl px-4 text-center">
-                <h2 class="text-4xl font-black mb-4 uppercase tracking-tighter">Programas de Formación</h2>
-                <p class="text-amber-600 font-bold uppercase tracking-widest text-[11px] mb-16 italic">Modalidad Virtual Global • Presencial en Barranquilla</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-                    <div class="grid-card p-8 flex flex-col shadow-sm">
-                        <h3 class="text-lg font-black mb-4 uppercase accent-color-primary">Armonía</h3>
-                        <ul class="space-y-2 text-sm font-bold text-slate-600 flex-grow">
-                            <li>• Jazz Avanzada</li>
-                            <li>• Tradicional</li>
-                            <li>• Modal</li>
-                            <li>• Teoría Musical</li>
-                        </ul>
+            <div class="container mx-auto max-w-5xl px-4">
+                <div class="text-center mb-20">
+                    <h2 class="text-5xl md:text-6xl font-black mb-6 uppercase tracking-tighter italic">Ruta de Formación</h2>
+                    <p class="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">
+                        Mi propuesta educativa integra la teoría armónica, la ejecución técnica y el desarrollo creativo a través de una progresión lógica diseñada para cada etapa del crecimiento musical.
+                    </p>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="progression-card p-10 rounded-3xl shadow-sm">
+                        <div class="flex flex-col md:flex-row md:items-center gap-6">
+                            <span class="text-4xl font-black text-amber-500 opacity-30 italic">01.</span>
+                            <div>
+                                <h3 class="text-2xl font-black uppercase tracking-tight mb-2">Iniciación</h3>
+                                <p class="text-slate-600">Construcción de los cimientos. Nos enfocamos en la gramática musical básica, la mecánica inicial del instrumento y la comprensión del ritmo, estableciendo una base sólida para el pensamiento musical funcional.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="grid-card p-8 flex flex-col shadow-sm border-amber-500/30">
-                        <h3 class="text-lg font-black mb-4 uppercase accent-color-primary">Creación</h3>
-                        <ul class="space-y-2 text-sm font-bold text-slate-600 flex-grow">
-                            <li>• Composición</li>
-                            <li>• Guitarra y Técnica</li>
-                            <li>• Mentoría de Obra</li>
-                        </ul>
+                    <div class="progression-card p-10 rounded-3xl shadow-sm">
+                        <div class="flex flex-col md:flex-row md:items-center gap-6">
+                            <span class="text-4xl font-black text-amber-500 opacity-30 italic">02.</span>
+                            <div>
+                                <h3 class="text-2xl font-black uppercase tracking-tight mb-2">Básico</h3>
+                                <p class="text-slate-600">Consolidación de estructuras. Abordamos la armonía diatónica, el desarrollo de la técnica intermedia y la aplicación práctica en piezas de repertorio, conectando la teoría con la ejecución real de manera consciente.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="grid-card p-8 flex flex-col shadow-sm">
-                        <h3 class="text-lg font-black mb-4 uppercase accent-color-primary">Pre-U</h3>
-                        <ul class="space-y-2 text-sm font-bold text-slate-600 flex-grow">
-                            <li>• Examen de Entrada</li>
-                            <li>• Pre Universitario</li>
-                        </ul>
+                    <div class="progression-card p-10 rounded-3xl shadow-sm">
+                        <div class="flex flex-col md:flex-row md:items-center gap-6">
+                            <span class="text-4xl font-black text-amber-500 opacity-30 italic">03.</span>
+                            <div>
+                                <h3 class="text-2xl font-black uppercase tracking-tight mb-2">Intermedio</h3>
+                                <p class="text-slate-600">Expansión del lenguaje. Exploración de lenguajes modernos (Jazz, Fusión, Modalismo), composición creativa y el uso avanzado de herramientas tecnológicas para el análisis profundo y la producción de ideas originales.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="grid-card p-8 flex flex-col shadow-sm bg-slate-900 text-white">
-                        <h3 class="text-lg font-black mb-4 uppercase text-amber-500">Asesoría</h3>
-                        <ul class="space-y-2 text-sm font-bold text-slate-300 flex-grow">
-                            <li>• Refuerzo Académico</li>
-                            <li>• Análisis Formal</li>
-                        </ul>
+                    <div class="progression-card p-10 rounded-3xl shadow-sm bg-white">
+                        <div class="flex flex-col md:flex-row md:items-center gap-6">
+                            <span class="text-4xl font-black text-amber-500 opacity-30 italic">04.</span>
+                            <div>
+                                <h3 class="text-2xl font-black uppercase tracking-tight mb-2">Avanzado</h3>
+                                <p class="text-slate-600">Especialización y maestría. Enfocado en la mentoría de proyectos de grado, análisis post-tonal, orquestación avanzada y el desarrollo de un estilo artístico único. Preparación para el entorno profesional de alto nivel.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-20 text-center">
+                    <p class="text-amber-600 font-bold uppercase tracking-[0.2em] text-xs italic mb-6">Contenidos aplicables a:</p>
+                    <div class="flex flex-wrap justify-center gap-8 font-black text-slate-800 uppercase tracking-tighter text-xl">
+                        <span>Armonía</span> <span class="text-slate-300">/</span>
+                        <span>Guitarra</span> <span class="text-slate-300">/</span>
+                        <span>Composición</span> <span class="text-slate-300">/</span>
+                        <span>Pre-Universitario</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- SECCIÓN: RECURSOS -->
+        <!-- SECCIÓN: SMART MUSIC LAB -->
         <div id="page-recursos" class="page-content hidden py-24">
             <div class="container mx-auto max-w-6xl px-4 text-center">
-                <h2 class="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tighter">HERRAMIENTAS INTERACTIVAS (<span id="resource-count-hero"></span> DISPONIBLES)</h2>
-                <p class="text-slate-500 uppercase tracking-widest text-[10px] font-bold italic mb-16">Laboratorio de Investigación y Pedagogía Musical</p>
-                <div class="flex flex-wrap justify-center gap-3 mb-16" id="resource-tabs"></div>
+                <div class="mb-16">
+                    <h2 class="text-5xl font-black mb-4 uppercase tracking-tighter italic">Smart Music Lab</h2>
+                    <p class="text-slate-500 uppercase tracking-widest text-[10px] font-black italic">
+                        Plataforma Interactiva con <span class="text-amber-600">28 Herramientas</span> de Especialidad
+                    </p>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-3 mb-12" id="resource-tabs"></div>
                 <div id="resources-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left"></div>
             </div>
         </div>
 
-        <!-- SECCIÓN: ARTÍCULOS -->
-        <div id="page-articulos" class="page-content hidden py-24">
-            <div class="container mx-auto max-w-6xl px-4 text-center">
-                <h2 class="text-4xl font-black mb-16 uppercase tracking-tighter">Biblioteca de Conocimiento</h2>
-                <div id="article-list-view" class="max-w-3xl mx-auto space-y-4 text-left">
-                    <div class="bg-white border rounded-2xl overflow-hidden shadow-sm">
-                        <button class="w-full p-6 flex justify-between items-center font-black text-slate-800" onclick="toggleTree(this)">
-                            🎹 Armonía y Análisis
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="3"/></svg>
-                        </button>
-                        <div class="article-content-body p-6 pt-0 border-t border-slate-50">
-                            <p class="text-slate-600 mb-4">Temas base sobre el sistema tonal y funcional.</p>
-                            <button onclick="viewFull('armonia-base')" class="text-amber-600 font-black uppercase text-[10px] tracking-widest hover:underline italic">Ver tema base →</button>
+        <!-- SECCIÓN: CONTACTO -->
+        <section id="contacto" class="container mx-auto max-w-6xl px-4 py-24">
+            <div class="bg-white rounded-[4rem] shadow-3xl overflow-hidden grid lg:grid-cols-2 border border-slate-100">
+                <div class="p-12 md:p-24 bg-slate-900 text-white flex flex-col justify-center">
+                    <h2 class="text-5xl font-black mb-10 italic leading-tight">Sesión de <br><span class="text-amber-400">Orientación.</span></h2>
+                    <p class="text-slate-400 mb-12 text-lg">Virtual Global • Presencial Barranquilla. <br>Hablemos sobre tu proyecto musical.</p>
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-5">
+                            <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-amber-400 text-xl font-bold">@</div>
+                            <span class="font-black text-[11px] uppercase tracking-widest italic">juanmiguel0927@gmail.com</span>
                         </div>
                     </div>
                 </div>
-                <div id="article-detail-view" class="hidden max-w-4xl mx-auto text-left full-article-view">
-                    <button onclick="backToArticles()" class="mb-8 flex items-center text-slate-400 font-black uppercase text-[10px] tracking-widest hover:text-amber-600 transition-colors">Regresar</button>
-                    <div id="full-art-content" class="bg-white rounded-[3rem] shadow-2xl p-12 border border-slate-100"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECCIÓN: CONTACTO CON SELECTOR OPTIMIZADO -->
-        <section id="contacto" class="container mx-auto max-w-6xl px-4 py-32">
-            <div class="bg-slate-900 rounded-[3rem] shadow-3xl overflow-hidden grid lg:grid-cols-2 border border-slate-800">
-                <div class="p-10 md:p-20 flex flex-col justify-center text-white lg:text-left text-center">
-                    <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight italic">Iniciemos tu <span class="text-amber-500">sesión</span>.</h2>
-                    <p class="text-blue-100/60 mb-6 text-lg font-medium leading-relaxed">
-                        Formación 100% Virtual (Mundial). <br>
-                        Presencial únicamente en Barranquilla.
-                    </p>
-                    <p class="text-blue-200/50 mb-10 text-sm italic">Reserva una charla informativa de 15 min sin costo. Notificación directa a mi celular.</p>
-                    <div class="flex items-center space-x-4 justify-center lg:justify-start">
-                        <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-amber-500"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-width="2"/></svg></div>
-                        <span class="font-bold text-sm">juanmiguel0927@gmail.com</span>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-10 md:p-20">
+                <div class="p-12 md:p-24">
                     <form id="contact-form" action="https://formspree.io/f/mnjvabdo" method="POST" class="space-y-6">
-                        <div>
-                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Nombre Completo</label>
-                            <input type="text" name="name" required class="form-input" placeholder="Tu nombre">
-                        </div>
-                        
-                        <!-- Selector Global Inteligente -->
-                        <div class="space-y-2">
-                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Celular (Privado)</label>
-                            <div class="flex gap-2 relative">
-                                <div class="relative w-1/3">
-                                    <button type="button" onclick="toggleCountryDropdown()" id="country-btn" class="country-select-btn w-full justify-between">
-                                        <span id="flag-display">🇨🇴</span>
-                                        <span id="code-display" class="font-bold text-xs">+57</span>
-                                    </button>
-                                    <div id="country-dropdown" class="absolute left-0 mt-2 w-72 max-h-80 bg-white border border-slate-200 rounded-2xl shadow-2xl hidden z-50 flex flex-col overflow-hidden">
-                                        <input type="text" id="country-filter" placeholder="Buscar país o indicativo..." class="w-full p-4 text-xs border-b sticky top-0 bg-slate-50 outline-none font-bold">
-                                        <div id="country-list" class="overflow-y-auto flex-grow"></div>
-                                    </div>
-                                </div>
-                                <input type="tel" name="phone" id="phone-input" required class="form-input flex-grow" placeholder="Escribe el número...">
-                                <input type="hidden" name="full_phone" id="hidden-phone">
-                            </div>
-                            <p id="detect-label" class="text-[9px] font-black text-amber-600 uppercase tracking-widest ml-1 italic"></p>
-                        </div>
-
-                        <div><label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Email</label><input type="email" name="email" required class="form-input" placeholder="correo@ejemplo.com"></div>
-                        <div><label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Mensaje</label><textarea name="message" rows="4" required class="form-input" placeholder="¿En qué puedo ayudarte?"></textarea></div>
-                        <button type="submit" id="form-btn" class="w-full bg-slate-900 text-white font-black py-5 rounded-2xl shadow-xl hover:bg-amber-600 transition-all uppercase tracking-widest text-[10px]">Enviar Mensaje Directo</button>
-                        <div id="form-result" class="hidden text-center font-bold text-sm mt-4"></div>
+                        <input type="text" name="name" required class="w-full p-5 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:border-amber-400 transition-all font-bold text-sm" placeholder="Tu nombre">
+                        <input type="email" name="email" required class="w-full p-5 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:border-amber-400 transition-all font-bold text-sm" placeholder="Correo electrónico">
+                        <textarea name="message" rows="4" required class="w-full p-5 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:border-amber-400 transition-all font-bold text-sm" placeholder="¿Cómo puedo ayudarte en tu formación?"></textarea>
+                        <button type="submit" id="form-btn" class="w-full bg-slate-900 text-white font-black py-6 rounded-2xl hover:bg-amber-400 hover:text-slate-900 transition-all uppercase tracking-widest text-[11px] shadow-xl">Enviar Mensaje Directo</button>
+                        <div id="form-result" class="hidden text-center font-black uppercase text-[10px] mt-4"></div>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-white border-t py-20 text-center">
-        <div class="container mx-auto max-w-6xl px-4">
-            <img src="https://raw.githubusercontent.com/juanmiguel0927/academia/3398345231d83d088ad54095455e9642e1abd990/Logo.png" alt="Logo" class="h-20 w-20 mx-auto mb-6 rounded-full object-cover bg-slate-900 p-1">
-            <p class="text-slate-900 font-black uppercase tracking-tighter text-xl leading-none">Juan Miguel Ríos Redondo</p>
-            <p class="text-slate-400 text-[10px] mb-8 uppercase tracking-widest mt-2 font-black italic">Barranquilla, Colombia | Global Virtual</p>
-        </div>
+    <footer class="bg-white py-20 text-center border-t border-slate-50">
+        <p class="text-slate-900 font-black uppercase tracking-[0.4em] text-[10px]">Juan Miguel Ríos Redondo</p>
+        <p class="text-slate-400 font-bold uppercase tracking-widest text-[8px] mt-4 italic">Música, Tecnología & Educación | Barranquilla, CO</p>
     </footer>
 
     <script>
-        // Listado de países comunes para mostrar primero
-        const topCountries = [
-            {n:"Colombia",c:"+57",f:"🇨🇴",p:"57"},
-            {n:"México",c:"+52",f:"🇲🇽",p:"52"},
-            {n:"Argentina",c:"+54",f:"🇦🇷",p:"54"},
-            {n:"España",c:"+34",f:"🇪🇸",p:"34"},
-            {n:"Chile",c:"+56",f:"🇨🇱",p:"56"}
-        ];
-
-        // Listado global completo de países
-        const globalCountries = [
-            ...topCountries,
-            {n:"Afganistán",c:"+93",f:"🇦🇫",p:"93"},{n:"Albania",c:"+355",f:"🇦🇱",p:"355"},{n:"Alemania",c:"+49",f:"🇩🇪",p:"49"},{n:"Andorra",c:"+376",f:"🇦🇩",p:"376"},
-            {n:"Angola",c:"+244",f:"🇦🇴",p:"244"},{n:"Argelia",c:"+213",f:"🇩🇿",p:"213"},{n:"Armenia",c:"+374",f:"🇦🇲",p:"374"},{n:"Aruba",c:"+297",f:"🇦🇼",p:"297"},
-            {n:"Australia",c:"+61",f:"🇦🇺",p:"61"},{n:"Austria",c:"+43",f:"🇦🇹",p:"43"},{n:"Azerbaiyán",c:"+994",f:"🇦🇿",p:"994"},{n:"Bahamas",c:"+1",f:"🇧🇸",p:"1242"},
-            {n:"Baréin",c:"+973",f:"🇧🇭",p:"973"},{n:"Bangladesh",c:"+880",f:"🇧🇩",p:"880"},{n:"Barbados",c:"+1",f:"🇧🇧",p:"1246"},{n:"Bélgica",c:"+32",f:"🇧🇪",p:"32"},
-            {n:"Belice",c:"+501",f:"🇧🇿",p:"501"},{n:"Benín",c:"+229",f:"🇧🇯",p:"229"},{n:"Bielorrusia",c:"+375",f:"🇧🇾",p:"375"},{n:"Bolivia",c:"+591",f:"🇧🇴",p:"591"},
-            {n:"Bosnia",c:"+387",f:"🇧🇦",p:"387"},{n:"Botsuana",c:"+267",f:"🇧🇼",p:"267"},{n:"Brasil",c:"+55",f:"🇧🇷",p:"55"},{n:"Bulgaria",c:"+359",f:"🇧🇬",p:"359"},
-            {n:"Canadá",c:"+1",f:"🇨🇦",p:"1"},{n:"China",c:"+86",f:"🇨🇳",p:"86"},{n:"Chipre",c:"+357",f:"🇨🇾",p:"357"},{n:"Corea del Sur",c:"+82",f:"🇰🇷",p:"82"},
-            {n:"Costa Rica",c:"+506",f:"🇨🇷",p:"506"},{n:"Croacia",c:"+385",f:"🇭🇷",p:"385"},{n:"Cuba",c:"+53",f:"🇨🇺",p:"53"},{n:"Dinamarca",c:"+45",f:"🇩🇰",p:"45"},
-            {n:"Ecuador",c:"+593",f:"🇪🇨",p:"593"},{n:"Egipto",c:"+20",f:"🇪🇬",p:"20"},{n:"El Salvador",c:"+503",f:"🇸🇻",p:"503"},{n:"Emiratos Árabes",c:"+971",f:"🇦🇪",p:"971"},
-            {n:"EE.UU.",c:"+1",f:"🇺🇸",p:"1"},{n:"Estonia",c:"+372",f:"🇪🇪",p:"372"},{n:"Etiopía",c:"+251",f:"🇪🇹",p:"251"},{n:"Filipinas",c:"+63",f:"🇵🇭",p:"63"},
-            {n:"Finlandia",c:"+358",f:"🇫🇮",p:"358"},{n:"Francia",c:"+33",f:"🇫🇷",p:"33"},{n:"Georgia",c:"+995",f:"🇬🇪",p:"995"},{n:"Ghana",c:"+233",f:"🇬🇭",p:"233"},
-            {n:"Grecia",c:"+30",f:"🇬🇷",p:"30"},{n:"Guatemala",c:"+502",f:"🇬🇹",p:"502"},{n:"Haití",c:"+509",f:"🇭🇹",p:"509"},{n:"Honduras",c:"+504",f:"🇭🇳",p:"504"},
-            {n:"Hong Kong",c:"+852",f:"🇭🇰",p:"852"},{n:"Hungría",c:"+36",f:"🇭🇺",p:"36"},{n:"India",c:"+91",f:"🇮🇳",p:"91"},{n:"Indonesia",c:"+62",f:"🇮🇩",p:"62"},
-            {n:"Irak",c:"+964",f:"🇮🇶",p:"964"},{n:"Irán",c:"+98",f:"🇮🇷",p:"98"},{n:"Irlanda",c:"+353",f:"🇮🇪",p:"353"},{n:"Israel",c:"+972",f:"🇮🇱",p:"972"},
-            {n:"Italia",c:"+39",f:"🇮🇹",p:"39"},{n:"Jamaica",c:"+1",f:"🇯🇲",p:"1876"},{n:"Japón",c:"+81",f:"🇯🇵",p:"81"},{n:"Jordania",c:"+962",f:"🇯🇴",p:"962"},
-            {n:"Kazajistán",c:"+7",f:"🇰🇿",p:"7"},{n:"Kenia",c:"+254",f:"🇰🇪",p:"254"},{n:"Kuwait",c:"+965",f:"🇰🇼",p:"965"},{n:"Líbano",c:"+961",f:"🇱🇧",p:"961"},
-            {n:"Lituania",c:"+370",f:"🇱🇹",p:"370"},{n:"Luxemburgo",c:"+352",f:"🇱🇺",p:"352"},{n:"Marruecos",c:"+212",f:"🇲🇦",p:"212"},{n:"Nicaragua",c:"+505",f:"🇳🇮",p:"505"},
-            {n:"Noruega",c:"+47",f:"🇳🇴",p:"47"},{n:"Nueva Zelanda",c:"+64",f:"🇳🇿",p:"64"},{n:"Países Bajos",c:"+31",f:"🇳🇱",p:"31"},{n:"Palestina",c:"+970",f:"🇵🇸",p:"970"},
-            {n:"Panamá",c:"+507",f:"🇵🇦",p:"507"},{n:"Paraguay",c:"+595",f:"🇵🇾",p:"595"},{n:"Perú",c:"+51",f:"🇵🇪",p:"51"},{n:"Polonia",c:"+48",f:"🇵🇱",p:"48"},
-            {n:"Portugal",c:"+351",f:"🇵🇹",p:"351"},{n:"Puerto Rico",c:"+1",f:"🇵🇷",p:"1787"},{n:"Catar",c:"+974",f:"🇶🇦",p:"974"},{n:"Reino Unido",c:"+44",f:"🇬🇧",p:"44"},
-            {n:"Rep. Dominicana",c:"+1",f:"🇩🇴",p:"1809"},{n:"Rumania",c:"+40",f:"🇷🇴",p:"40"},{n:"Rusia",c:"+7",f:"🇷🇺",p:"7"},{n:"Sudáfrica",c:"+27",f:"🇿🇦",p:"27"},
-            {n:"Suecia",c:"+46",f:"🇸🇪",p:"46"},{n:"Suiza",c:"+41",f:"🇨🇭",p:"41"},{n:"Tailandia",c:"+66",f:"🇹🇭",p:"66"},{n:"Turquía",c:"+90",f:"🇹🇷",p:"90"},
-            {n:"Ucrania",c:"+380",f:"🇺🇦",p:"380"},{n:"Uruguay",c:"+598",f:"🇺🇾",p:"598"},{n:"Vaticano",c:"+379",f:"🇻🇦",p:"379"},{n:"Venezuela",c:"+58",f:"🇻🇪",p:"58"}
-        ];
-
-        let currentCountry = topCountries[0];
-
-        function toggleCountryDropdown() { document.getElementById('country-dropdown').classList.toggle('hidden'); }
-
-        function setCountry(c) {
-            currentCountry = c;
-            document.getElementById('flag-display').textContent = c.f;
-            document.getElementById('code-display').textContent = c.c;
-            document.getElementById('detect-label').textContent = `Ubicación detectada: ${c.n}`;
-            document.getElementById('country-dropdown').classList.add('hidden');
-        }
-
-        function initLogic() {
-            const list = document.getElementById('country-list');
-            const filter = document.getElementById('country-filter');
-            const phone = document.getElementById('phone-input');
-
-            function render(q = "") {
-                list.innerHTML = "";
-                // Si no hay búsqueda, mostramos el Top 5
-                const source = q.trim() === "" ? topCountries : globalCountries;
-                
-                source.filter(c => c.n.toLowerCase().includes(q.toLowerCase()) || c.c.includes(q))
-                .forEach(c => {
-                    const d = document.createElement('div');
-                    d.className = "p-4 text-xs font-bold hover:bg-slate-50 cursor-pointer flex justify-between items-center border-b border-slate-50";
-                    d.innerHTML = `<span>${c.f} ${c.n}</span><span class="text-amber-600">${c.c}</span>`;
-                    d.onclick = () => {
-                        setCountry(c);
-                        filter.value = "";
-                        render();
-                    };
-                    list.appendChild(d);
-                });
-            }
-
-            filter.oninput = (e) => render(e.target.value);
-            
-            // DETECCIÓN AUTOMÁTICA AL ESCRIBIR NÚMERO
-            phone.oninput = (e) => {
-                const val = e.target.value.replace(/\D/g, "");
-                if (val.length >= 1) {
-                    // Buscar en toda la lista global
-                    const match = globalCountries.slice().sort((a,b) => b.p.length - a.p.length).find(c => val.startsWith(c.p));
-                    if (match && match.p !== currentCountry.p) setCountry(match);
-                }
-            };
-
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('#country-btn') && !e.target.closest('#country-dropdown')) document.getElementById('country-dropdown').classList.add('hidden');
-            });
-            render();
-        }
-
-        // Lógica de recursos y navegación
+        // --- 28 APLICACIONES CON DESCRIPCIONES ---
         const resData = {
             "Teoría & Composición": [
-                { title: "Bloques Armónicos", url: "https://juanmiguel0927.github.io/BloqueArmonicoPro/", desc: "Técnica 4-way closed.", icon: "🧱" },
-                { title: "Teoría Neo-Riemanniana", url: "https://juanmiguel0927.github.io/TeoriaNeo-Riemanniana/", desc: "Transformación de acordes.", icon: "🔄" },
-                { title: "Generador Dodecafónico", url: "https://juanmiguel0927.github.io/GeneradorDodecafonico/", desc: "Series de 12 tonos.", icon: "🔢" },
-                { title: "Isorritmia", url: "https://juanmiguel0927.github.io/GeneradorDeIsorritmia/", desc: "Composición rítmica.", icon: "🧬" },
-                { title: "Navegación Modal", url: "https://juanmiguel0927.github.io/NavegacionModal/", desc: "Rutas entre modos.", icon: "🧭" },
-                { title: "Duración Pro", url: "https://juanmiguel0927.github.io/DuracionMusicalPro/", desc: "Cálculo técnico BPM.", icon: "⏱️" }
+                { title: "Bloques Armónicos", url: "https://juanmiguel0927.github.io/BloqueArmonicoPro/", desc: "Visualiza la técnica 4-way closed para crear arreglos melódicos densos y profesionales.", icon: "🧱" },
+                { title: "Teoría Neo-Riemanniana", url: "https://juanmiguel0927.github.io/TeoriaNeo-Riemanniana/", desc: "Analiza transformaciones cromáticas entre tríadas sin pasar por la armonía funcional tradicional.", icon: "🔄" },
+                { title: "Generador Dodecafónico", url: "https://juanmiguel0927.github.io/GeneradorDodecafonico/", desc: "Crea y analiza series de 12 tonos para composiciones atonales y serialistas.", icon: "🔢" },
+                { title: "Isorritmia", url: "https://juanmiguel0927.github.io/GeneradorDeIsorritmia/", desc: "Genera patrones rítmicos y melódicos complejos basados en técnicas compositivas históricas.", icon: "🧬" },
+                { title: "Navegación Modal", url: "https://juanmiguel0927.github.io/NavegacionModal/", desc: "Explora la interconectividad entre los modos griegos y sus sonoridades características.", icon: "🧭" },
+                { title: "Duración Pro", url: "https://juanmiguel0927.github.io/DuracionMusicalPro/", desc: "Calcula duraciones exactas de figuras musicales y delays basándose en el BPM del proyecto.", icon: "⏱️" }
             ],
             "Jazz & Impro": [
-                { title: "Barry Harris", url: "https://juanmiguel0927.github.io/BarryHarrisArmonia/", desc: "Método y escalas Harris.", icon: "🎹" },
-                { title: "Laboratorio Jazz", url: "https://juanmiguel0927.github.io/LaboratorioLenguajeDeJazz/", desc: "Práctica de fraseo.", icon: "🧪" },
-                { title: "Modos", url: "https://juanmiguel0927.github.io/LaboratorioDeModos/", desc: "Exploración sonora.", icon: "🎨" },
-                { title: "Menor Melódica", url: "https://juanmiguel0927.github.io/MenorMelodico/", desc: "Aplicaciones en Jazz.", icon: "🌑" },
-                { title: "Resoluciones Blues", url: "https://juanmiguel0927.github.io/ResolucionesBlues/", desc: "Licks armónicos.", icon: "🎸" },
-                { title: "Pentatónicas", url: "https://juanmiguel0927.github.io/Pentatonicas/", desc: "Relación escala-acorde.", icon: "🖐️" },
-                { title: "GMC", url: "https://juanmiguel0927.github.io/GMC/", desc: "Guía Mick Goodrick.", icon: "📖" }
+                { title: "Barry Harris", url: "https://juanmiguel0927.github.io/BarryHarrisArmonia/", desc: "Domina el sistema de Sixth Diminished y las escalas de 8 notas del legendario pianista.", icon: "🎹" },
+                { title: "Laboratorio Jazz", url: "https://juanmiguel0927.github.io/LaboratorioLenguajeDeJazz/", desc: "Herramienta para practicar el lenguaje de improvisación mediante la repetición de licks.", icon: "🧪" },
+                { title: "Modos", url: "https://juanmiguel0927.github.io/LaboratorioDeModos/", desc: "Laboratorio de experimentación sonora para entender el carácter único de cada escala modal.", icon: "🎨" },
+                { title: "Menor Melódica", url: "https://juanmiguel0927.github.io/MenorMelodico/", desc: "Estudia las aplicaciones de la escala menor melódica y sus modos en la improvisación moderna.", icon: "🌑" },
+                { title: "Resoluciones Blues", url: "https://juanmiguel0927.github.io/ResolucionesBlues/", desc: "Guía de vocabulario armónico para resolver tensiones en el contexto del blues y el jazz.", icon: "🎸" },
+                { title: "Pentatónicas", url: "https://juanmiguel0927.github.io/Pentatonicas/", desc: "Descubre cómo aplicar escalas pentatónicas sobre acordes complejos para lograr sonidos frescos.", icon: "🖐️" },
+                { title: "GMC", url: "https://juanmiguel0927.github.io/GMC/", desc: "Implementación interactiva de la metodología de acordes modales de Mick Goodrick.", icon: "📖" }
             ],
-            "Habilidades": [
-                { title: "Formar Oído Pro", url: "https://juanmiguel0927.github.io/FormarOidoPro/", desc: "Desarrollo funcional.", icon: "👂" },
-                { title: "Laboratorio Rítmico", url: "https://juanmiguel0927.github.io/Ritmo/", desc: "Música afrocaribeña.", icon: "👂" },
-                { title: "Ritmo y Metro", url: "https://juanmiguel0927.github.io/Ritmo-Metro/", desc: "Metrónomo avanzado.", icon: "🥁" },
-                { title: "Sight-Reading", url: "https://juanmiguel0927.github.io/LecturaAPrimeraVista/", desc: "Ejercicios guitarra.", icon: "📄" },
-                { title: "Lectura Rápida", url: "https://juanmiguel0927.github.io/LecturaRapida/", desc: "Técnica del español.", icon: "⚡" }
+            "Entrenamiento": [
+                { title: "Formar Oído Pro", url: "https://juanmiguel0927.github.io/FormarOidoPro/", desc: "Entrenamiento auditivo enfocado en el reconocimiento funcional de grados e intervalos.", icon: "👂" },
+                { title: "Laboratorio Rítmico", url: "https://juanmiguel0927.github.io/Ritmo/", desc: "Perfecciona la ejecución de polirritmias y patrones complejos de la música del mundo.", icon: "🥁" },
+                { title: "Ritmo y Metro", url: "https://juanmiguel0927.github.io/Ritmo-Metro/", desc: "Metrónomo técnico que permite trabajar subdivisiones y métricas irregulares con precisión.", icon: "⌚" },
+                { title: "Lectura a 1ra Vista", url: "https://juanmiguel0927.github.io/LecturaAPrimeraVista/", desc: "Optimiza la decodificación de partituras en la guitarra mediante visualización estratégica.", icon: "📄" },
+                { title: "Lectura Rápida", url: "https://juanmiguel0927.github.io/LecturaRapida/", desc: "Ejercicios diseñados para aumentar la velocidad de procesamiento de textos e información.", icon: "⚡" }
             ],
-            "Gestión": [
-                { title: "CV Interactivo", url: "https://juanmiguel0927.github.io/CurriculumVitae/", desc: "Perfil profesional.", icon: "💼" },
-                { title: "Bibliografía", url: "https://juanmiguel0927.github.io/Bibliografia/", desc: "Fuentes de estudio.", icon: "📚" }
+            "Gestión & Otros": [
+                { title: "CV Interactivo", url: "https://juanmiguel0927.github.io/CurriculumVitae/", desc: "Portafolio dinámico para presentar proyectos, habilidades y trayectoria profesional.", icon: "💼" },
+                { title: "Bibliografía", url: "https://juanmiguel0927.github.io/Bibliografia/", desc: "Repositorio organizado de libros y tratados esenciales para el estudio musical profundo.", icon: "📚" }
             ],
             "Billar": [
-                { title: "Técnica Pool", url: "https://juanmiguel0927.github.io/Tecnica/", desc: "Rutinas técnicas.", icon: "🎱" },
-                { title: "Ejercicios", url: "https://juanmiguel0927.github.io/Pool/", desc: "Retos de mesa.", icon: "🎯" },
-                { title: "Examen Pool", url: "https://juanmiguel0927.github.io/ExamenPool/", desc: "Pruebas de nivel.", icon: "📝" }
+                { title: "Técnica Pool", url: "https://juanmiguel0927.github.io/Tecnica/", desc: "Guía de postura y ejecución técnica para jugadores de billar que buscan consistencia.", icon: "🎱" },
+                { title: "Ejercicios Pool", url: "https://juanmiguel0927.github.io/Pool/", desc: "Diagramas interactivos de entrenamiento para perfeccionar el control de la bola blanca.", icon: "🎯" },
+                { title: "Examen Pool", url: "https://juanmiguel0927.github.io/ExamenPool/", desc: "Sistema de evaluación para medir objetivamente tu progreso en la mesa de billar.", icon: "📝" }
             ],
             "Vida": [
-                { title: "Piloto", url: "https://juanmiguel0927.github.io/Piloto/", desc: "Audiolibros.", icon: "✈️" },
-                { title: "Finanzas", url: "https://juanmiguel0927.github.io/Finanzas/", desc: "Gestión personal.", icon: "💰" },
-                { title: "Ahorro Flex", url: "https://juanmiguel0927.github.io/AhorroFlex/", desc: "Metas de ahorro.", icon: "🐷" },
-                { title: "Lunea", url: "https://juanmiguel0927.github.io/Lunea/", desc: "Control ciclo menstrual.", icon: "🌙" },
-                { title: "Asados", url: "https://juanmiguel0927.github.io/Asados/", desc: "Guías y recetas.", icon: "🥩" }
+                { title: "Piloto", url: "https://juanmiguel0927.github.io/Piloto/", desc: "Plataforma de aprendizaje auditivo y acceso a recursos de audiolibros seleccionados.", icon: "✈️" },
+                { title: "Finanzas", url: "https://juanmiguel0927.github.io/Finanzas/", desc: "Gestiona el flujo de caja personal y profesional de forma sencilla y eficiente.", icon: "💰" },
+                { title: "Ahorro Flex", url: "https://juanmiguel0927.github.io/AhorroFlex/", desc: "Planificador inteligente para alcanzar metas financieras mediante el ahorro programado.", icon: "🐷" },
+                { title: "Lunea", url: "https://juanmiguel0927.github.io/Lunea/", desc: "Herramienta de seguimiento biológico para entender y registrar ciclos naturales.", icon: "🌙" },
+                { title: "Asados", url: "https://juanmiguel0927.github.io/Asados/", desc: "Calculadora de insumos y guía técnica de tiempos para el asado perfecto.", icon: "🥩" }
             ]
         };
 
-        const artCont = {
-            'armonia-base': `<h2 class="text-3xl font-black mb-6">El Sistema Tonal Moderno</h2><div class="prose prose-slate text-slate-600 text-lg space-y-6"><p>La armonía tonal es la base de la música occidental. Se fundamenta en la jerarquía y las funciones armónicas de tensión y resolución.</p></div>`
-        };
+        function initRes() {
+            const tabs = document.getElementById('resource-tabs');
+            tabs.innerHTML = '';
+            Object.keys(resData).forEach((c, i) => {
+                const b = document.createElement('button');
+                b.className = `px-6 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all ${i===0 ? 'bg-amber-400 text-slate-900 shadow-lg shadow-amber-400/20' : 'bg-slate-100 text-slate-400'}`;
+                b.textContent = c;
+                b.onclick = (e) => {
+                    document.querySelectorAll('#resource-tabs button').forEach(x => { x.className = 'px-6 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest bg-slate-100 text-slate-400'; });
+                    e.currentTarget.className = 'px-6 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest bg-amber-400 text-slate-900 shadow-lg shadow-amber-400/20';
+                    renderRes(c);
+                };
+                tabs.appendChild(b);
+            });
+            renderRes(Object.keys(resData)[0]);
+        }
+
+        function renderRes(c) {
+            const g = document.getElementById('resources-grid');
+            g.innerHTML = '';
+            resData[c].forEach(x => {
+                g.innerHTML += `
+                    <div class="grid-card p-10 hover:border-amber-400">
+                        <div class="text-4xl mb-6">${x.icon}</div>
+                        <h4 class="font-black text-xs uppercase tracking-widest mb-3 text-slate-900">${x.title}</h4>
+                        <p class="text-[11px] text-slate-500 mb-8 leading-relaxed">${x.desc}</p>
+                        <a href="${x.url}" target="_blank" class="mt-auto text-[9px] font-black text-amber-600 uppercase tracking-widest border-b border-amber-200 inline-block">Ejecutar App →</a>
+                    </div>`;
+            });
+        }
 
         function showPage(p) {
             document.querySelectorAll('.page-content').forEach(s => s.classList.add('hidden'));
@@ -468,68 +334,11 @@
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        function viewFull(id) {
-            document.getElementById('full-art-content').innerHTML = artCont[id] || '<p class="italic text-slate-400">Contenido próximamente...</p>';
-            document.getElementById('article-list-view').classList.add('hidden');
-            document.getElementById('article-detail-view').classList.remove('hidden');
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-        function backToArticles() {
-            document.getElementById('article-list-view').classList.remove('hidden');
-            document.getElementById('article-detail-view').classList.add('hidden');
-        }
-        function toggleTree(b) {
-            const c = b.nextElementSibling;
-            b.querySelector('svg').classList.toggle('rotate-180');
-            c.classList.toggle('open');
-        }
+        function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
 
-        function initRes() {
-            const tabs = document.getElementById('resource-tabs');
-            let t = 0;
-            Object.keys(resData).forEach((c, i) => {
-                t += resData[c].length;
-                const b = document.createElement('button');
-                b.className = `category-tab px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-slate-900 ${i === 0 ? 'active' : ''}`;
-                b.textContent = c;
-                b.onclick = (e) => {
-                    document.querySelectorAll('.category-tab').forEach(x => x.classList.remove('active'));
-                    e.currentTarget.classList.add('active');
-                    renderRes(c);
-                };
-                tabs.appendChild(b);
-            });
-            document.getElementById('resource-count-hero').textContent = t;
-            document.getElementById('total-tools-badge').textContent = t;
-            renderRes(Object.keys(resData)[0]);
-        }
-
-        function renderRes(c) {
-            const g = document.getElementById('resources-grid');
-            g.innerHTML = '';
-            resData[c].forEach(x => {
-                g.innerHTML += `<a href="${x.url}" target="_blank" class="grid-card p-8 flex flex-col border-slate-100 hover:border-amber-500/50"><div class="text-4xl mb-4">${x.icon}</div><h4 class="font-black text-lg mb-2 text-slate-900">${x.title}</h4><p class="text-sm text-slate-500 mb-6 leading-relaxed text-left">${x.desc}</p><span class="text-[10px] font-black text-amber-600 uppercase tracking-widest mt-auto">Abrir Herramienta →</span></a>`;
-            });
-        }
-
-        const cForm = document.getElementById('contact-form');
-        cForm.onsubmit = async (e) => {
-            e.preventDefault();
-            const b = document.getElementById('form-btn');
-            const r = document.getElementById('form-result');
-            document.getElementById('hidden-phone').value = `${currentCountry.c} ${document.getElementById('phone-input').value}`;
-            b.disabled = true; b.textContent = 'Enviando...';
-            const resp = await fetch(cForm.action, { method: 'POST', body: new FormData(cForm), headers: { 'Accept': 'application/json' } });
-            if (resp.ok) { r.textContent = "¡Enviado con éxito! Te contactaré pronto."; r.className = "block text-green-600 font-bold mt-4"; cForm.reset(); } 
-            else { r.textContent = "Error al enviar. Intenta de nuevo."; r.className = "block text-red-600 font-bold mt-4"; }
-            b.disabled = false; b.textContent = 'Enviar Mensaje Directo';
-            r.classList.remove('hidden');
-        };
-
-        function toggleMobileMenu() { document.getElementById('mobile-menu')?.classList.toggle('hidden'); }
-        function scrollToContact() { document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' }); }
-
-        document.addEventListener('DOMContentLoaded', () => { initRes(); initLogic(); setCountry(currentCountry); });
+        document.addEventListener('DOMContentLoaded', () => {
+            initRes();
+        });
     </script>
 </body>
 </html>
