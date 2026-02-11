@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juan Miguel Ríos | Smart Music Lab & Formación Integral</title>
-    <meta name="description" content="Formación musical de alto nivel con tecnología de vanguardia. Explora el Smart Music Lab con 28 herramientas interactivas.">
+    <meta name="description" content="Formación musical de alto nivel con tecnología de vanguardia. Explora el Smart Music Lab con 30 herramientas interactivas.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,6 +79,11 @@
         }
 
         .logo-nav { background-color: #0f172a; padding: 4px; }
+        
+        #country-dropdown {
+            scrollbar-width: thin;
+            scrollbar-color: var(--secondary-gold) #f1f5f9;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -106,6 +111,7 @@
             </button>
         </div>
 
+        <!-- Menú Móvil -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full p-8 shadow-2xl flex flex-col space-y-6">
             <button onclick="showPage('inicio'); toggleMobileMenu()" class="text-left font-black uppercase text-xs tracking-widest text-slate-600">Inicio</button>
             <button onclick="showPage('programas'); toggleMobileMenu()" class="text-left font-black uppercase text-xs tracking-widest text-slate-600">Formación por Niveles</button>
@@ -143,7 +149,7 @@
             </section>
         </div>
 
-        <!-- SECCIÓN: PROGRAMAS (Narrativa) -->
+        <!-- SECCIÓN: PROGRAMAS (Ruta de Aprendizaje Narrativa) -->
         <div id="page-programas" class="page-content hidden py-24 bg-slate-50">
             <div class="container mx-auto max-w-5xl px-4">
                 <div class="text-center mb-20">
@@ -154,46 +160,50 @@
                 </div>
 
                 <div class="space-y-8">
+                    <!-- Iniciación -->
                     <div class="progression-card p-10 rounded-3xl shadow-sm">
                         <div class="flex flex-col md:flex-row md:items-center gap-6">
                             <span class="text-4xl font-black text-amber-500 opacity-30 italic">01.</span>
                             <div>
-                                <h3 class="text-2xl font-black uppercase tracking-tight mb-2">Iniciación</h3>
-                                <p class="text-slate-600">Construcción de los cimientos. Nos enfocamos en la gramática musical básica, la mecánica inicial del instrumento y la comprensión del ritmo, estableciendo una base sólida para el pensamiento musical funcional.</p>
+                                <h3 class="text-2xl font-black uppercase tracking-tight mb-2 text-slate-900">Iniciación</h3>
+                                <p class="text-slate-600">Construcción de los cimientos. Nos enfocamos en la gramática musical básica, la mecánica inicial del instrumento y la comprensión del ritmo, estableciendo una base sólida para el pensamiento musical funcional y consciente.</p>
                             </div>
                         </div>
                     </div>
+                    <!-- Básico -->
                     <div class="progression-card p-10 rounded-3xl shadow-sm">
                         <div class="flex flex-col md:flex-row md:items-center gap-6">
                             <span class="text-4xl font-black text-amber-500 opacity-30 italic">02.</span>
                             <div>
-                                <h3 class="text-2xl font-black uppercase tracking-tight mb-2">Básico</h3>
-                                <p class="text-slate-600">Consolidación de estructuras. Abordamos la armonía diatónica, el desarrollo de la técnica intermedia y la aplicación práctica en piezas de repertorio, conectando la teoría con la ejecución real de manera consciente.</p>
+                                <h3 class="text-2xl font-black uppercase tracking-tight mb-2 text-slate-900">Básico</h3>
+                                <p class="text-slate-600">Consolidación de estructuras. Abordamos la armonía diatónica, el desarrollo de la técnica intermedia y la aplicación práctica en piezas de repertorio, conectando la teoría con la ejecución real de manera técnica y analítica.</p>
                             </div>
                         </div>
                     </div>
+                    <!-- Intermedio -->
                     <div class="progression-card p-10 rounded-3xl shadow-sm">
                         <div class="flex flex-col md:flex-row md:items-center gap-6">
                             <span class="text-4xl font-black text-amber-500 opacity-30 italic">03.</span>
                             <div>
-                                <h3 class="text-2xl font-black uppercase tracking-tight mb-2">Intermedio</h3>
-                                <p class="text-slate-600">Expansión del lenguaje. Exploración de lenguajes modernos (Jazz, Fusión, Modalismo), composición creativa y el uso avanzado de herramientas tecnológicas para el análisis profundo y la producción de ideas originales.</p>
+                                <h3 class="text-2xl font-black uppercase tracking-tight mb-2 text-slate-900">Intermedio</h3>
+                                <p class="text-slate-600">Expansión del lenguaje. Exploración de lenguajes modernos (Jazz, Fusión, Modalismo), composición creativa y el uso avanzado de herramientas tecnológicas para el análisis profundo y la producción de ideas originales y complejas.</p>
                             </div>
                         </div>
                     </div>
+                    <!-- Avanzado -->
                     <div class="progression-card p-10 rounded-3xl shadow-sm bg-white">
                         <div class="flex flex-col md:flex-row md:items-center gap-6">
                             <span class="text-4xl font-black text-amber-500 opacity-30 italic">04.</span>
                             <div>
-                                <h3 class="text-2xl font-black uppercase tracking-tight mb-2">Avanzado</h3>
-                                <p class="text-slate-600">Especialización y maestría. Enfocado en la mentoría de proyectos de grado, análisis post-tonal, orquestación avanzada y el desarrollo de un estilo artístico único. Preparación para el entorno profesional de alto nivel.</p>
+                                <h3 class="text-2xl font-black uppercase tracking-tight mb-2 text-slate-900">Avanzado</h3>
+                                <p class="text-slate-600">Especialización y maestría. Enfocado en la mentoría de proyectos de grado, análisis post-tonal, orquestación avanzada y el desarrollo de un estilo artístico único. Preparación rigurosa para el entorno profesional de alto nivel.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="mt-20 text-center">
-                    <p class="text-amber-600 font-bold uppercase tracking-[0.2em] text-xs italic mb-6">Contenidos aplicables a:</p>
+                    <p class="text-amber-600 font-bold uppercase tracking-[0.2em] text-xs italic mb-6">Áreas de especialidad:</p>
                     <div class="flex flex-wrap justify-center gap-8 font-black text-slate-800 uppercase tracking-tighter text-xl">
                         <span>Armonía</span> <span class="text-slate-300">/</span>
                         <span>Guitarra</span> <span class="text-slate-300">/</span>
@@ -210,7 +220,7 @@
                 <div class="mb-16">
                     <h2 class="text-5xl font-black mb-4 uppercase tracking-tighter italic">Smart Music Lab</h2>
                     <p class="text-slate-500 uppercase tracking-widest text-[10px] font-black italic">
-                        Plataforma Interactiva con <span class="text-amber-600">28 Herramientas</span> de Especialidad
+                        Plataforma Interactiva con <span class="text-amber-600">30 Herramientas</span> de Especialidad
                     </p>
                 </div>
                 
@@ -224,7 +234,7 @@
             <div class="bg-white rounded-[4rem] shadow-3xl overflow-hidden grid lg:grid-cols-2 border border-slate-100">
                 <div class="p-12 md:p-24 bg-slate-900 text-white flex flex-col justify-center">
                     <h2 class="text-5xl font-black mb-10 italic leading-tight">Sesión de <br><span class="text-amber-400">Orientación.</span></h2>
-                    <p class="text-slate-400 mb-12 text-lg">Virtual Global • Presencial Barranquilla. <br>Hablemos sobre tu proyecto musical.</p>
+                    <p class="text-slate-400 mb-12 text-lg">Virtual Global • Presencial Barranquilla. <br>Iniciemos tu diagnóstico musical hoy mismo.</p>
                     <div class="space-y-6">
                         <div class="flex items-center space-x-5">
                             <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-amber-400 text-xl font-bold">@</div>
@@ -235,6 +245,18 @@
                 <div class="p-12 md:p-24">
                     <form id="contact-form" action="https://formspree.io/f/mnjvabdo" method="POST" class="space-y-6">
                         <input type="text" name="name" required class="w-full p-5 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:border-amber-400 transition-all font-bold text-sm" placeholder="Tu nombre">
+                        
+                        <div class="flex gap-2 relative">
+                            <button type="button" onclick="toggleCountryDropdown()" id="country-btn" class="flex items-center gap-3 px-5 border border-slate-100 bg-slate-50 rounded-2xl cursor-pointer min-w-[110px]">
+                                <span id="flag-display">🇨🇴</span>
+                                <span id="code-display" class="font-bold text-xs">+57</span>
+                            </button>
+                            <input type="tel" name="phone" id="phone-input" required class="flex-grow p-5 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:border-amber-400 transition-all font-bold text-sm" placeholder="Celular">
+                            <div id="country-dropdown" class="absolute left-0 mt-16 w-64 max-h-60 bg-white border border-slate-200 rounded-2xl shadow-2xl hidden z-50 overflow-y-auto">
+                                <div id="country-list" class="flex flex-col"></div>
+                            </div>
+                        </div>
+
                         <input type="email" name="email" required class="w-full p-5 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:border-amber-400 transition-all font-bold text-sm" placeholder="Correo electrónico">
                         <textarea name="message" rows="4" required class="w-full p-5 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:border-amber-400 transition-all font-bold text-sm" placeholder="¿Cómo puedo ayudarte en tu formación?"></textarea>
                         <button type="submit" id="form-btn" class="w-full bg-slate-900 text-white font-black py-6 rounded-2xl hover:bg-amber-400 hover:text-slate-900 transition-all uppercase tracking-widest text-[11px] shadow-xl">Enviar Mensaje Directo</button>
@@ -251,59 +273,68 @@
     </footer>
 
     <script>
-        // --- 28 APLICACIONES CON DESCRIPCIONES ---
+        // --- 30 APLICACIONES CON DESCRIPCIONES FUNCIONALES ---
         const resData = {
             "Teoría & Composición": [
-                { title: "Bloques Armónicos", url: "https://juanmiguel0927.github.io/BloqueArmonicoPro/", desc: "Visualiza la técnica 4-way closed para crear arreglos melódicos densos y profesionales.", icon: "🧱" },
-                { title: "Teoría Neo-Riemanniana", url: "https://juanmiguel0927.github.io/TeoriaNeo-Riemanniana/", desc: "Analiza transformaciones cromáticas entre tríadas sin pasar por la armonía funcional tradicional.", icon: "🔄" },
-                { title: "Generador Dodecafónico", url: "https://juanmiguel0927.github.io/GeneradorDodecafonico/", desc: "Crea y analiza series de 12 tonos para composiciones atonales y serialistas.", icon: "🔢" },
-                { title: "Isorritmia", url: "https://juanmiguel0927.github.io/GeneradorDeIsorritmia/", desc: "Genera patrones rítmicos y melódicos complejos basados en técnicas compositivas históricas.", icon: "🧬" },
-                { title: "Navegación Modal", url: "https://juanmiguel0927.github.io/NavegacionModal/", desc: "Explora la interconectividad entre los modos griegos y sus sonoridades características.", icon: "🧭" },
-                { title: "Duración Pro", url: "https://juanmiguel0927.github.io/DuracionMusicalPro/", desc: "Calcula duraciones exactas de figuras musicales y delays basándose en el BPM del proyecto.", icon: "⏱️" }
+                { title: "Bloques Armónicos", url: "https://juanmiguel0927.github.io/BloqueArmonicoPro/", desc: "Automatiza la técnica 4-way closed para crear arreglos melódicos con texturas armónicas profesionales.", icon: "🧱" },
+                { title: "Teoría Neo-Riemanniana", url: "https://juanmiguel0927.github.io/TeoriaNeo-Riemanniana/", desc: "Explora conexiones cromáticas entre tríadas mediante transformaciones L, P y R para composición moderna.", icon: "🔄" },
+                { title: "Generador Dodecafónico", url: "https://juanmiguel0927.github.io/GeneradorDodecafonico/", desc: "Crea y analiza series de 12 tonos con matrices de permutación para música atonal y serialista.", icon: "🔢" },
+                { title: "Isorritmia", url: "https://juanmiguel0927.github.io/GeneradorDeIsorritmia/", desc: "Genera estructuras rítmicas y melódicas basadas en Color y Talea para composiciones de vanguardia.", icon: "🧬" },
+                { title: "Navegación Modal", url: "https://juanmiguel0927.github.io/NavegacionModal/", desc: "Guía interactiva para transitar entre los modos griegos y comprender sus distancias e intercambios.", icon: "🧭" },
+                { title: "Duración Pro", url: "https://juanmiguel0927.github.io/DuracionMusicalPro/", desc: "Calculadora técnica para sincronizar efectos, delays y figuras musicales según el BPM de la obra.", icon: "⏱️" }
             ],
             "Jazz & Impro": [
-                { title: "Barry Harris", url: "https://juanmiguel0927.github.io/BarryHarrisArmonia/", desc: "Domina el sistema de Sixth Diminished y las escalas de 8 notas del legendario pianista.", icon: "🎹" },
-                { title: "Laboratorio Jazz", url: "https://juanmiguel0927.github.io/LaboratorioLenguajeDeJazz/", desc: "Herramienta para practicar el lenguaje de improvisación mediante la repetición de licks.", icon: "🧪" },
-                { title: "Modos", url: "https://juanmiguel0927.github.io/LaboratorioDeModos/", desc: "Laboratorio de experimentación sonora para entender el carácter único de cada escala modal.", icon: "🎨" },
-                { title: "Menor Melódica", url: "https://juanmiguel0927.github.io/MenorMelodico/", desc: "Estudia las aplicaciones de la escala menor melódica y sus modos en la improvisación moderna.", icon: "🌑" },
-                { title: "Resoluciones Blues", url: "https://juanmiguel0927.github.io/ResolucionesBlues/", desc: "Guía de vocabulario armónico para resolver tensiones en el contexto del blues y el jazz.", icon: "🎸" },
-                { title: "Pentatónicas", url: "https://juanmiguel0927.github.io/Pentatonicas/", desc: "Descubre cómo aplicar escalas pentatónicas sobre acordes complejos para lograr sonidos frescos.", icon: "🖐️" },
-                { title: "GMC", url: "https://juanmiguel0927.github.io/GMC/", desc: "Implementación interactiva de la metodología de acordes modales de Mick Goodrick.", icon: "📖" }
+                { title: "Barry Harris", url: "https://juanmiguel0927.github.io/BarryHarrisArmonia/", desc: "Aprende el sistema de Sixth Diminished y escalas de 8 notas para lograr el sonido bop auténtico.", icon: "🎹" },
+                { title: "Laboratorio Jazz", url: "https://juanmiguel0927.github.io/LaboratorioLenguajeDeJazz/", desc: "Entrena tu oído y dedos con secuencias de licks y fraseos clásicos del vocabulario jazzístico.", icon: "🧪" },
+                { title: "Modos", url: "https://juanmiguel0927.github.io/LaboratorioDeModos/", desc: "Visualizador de escalas modales para experimentar con sonoridades brillantes y oscuras sobre pedales.", icon: "🎨" },
+                { title: "Menor Melódica", url: "https://juanmiguel0927.github.io/MenorMelodico/", desc: "Estudia las aplicaciones de la escala menor melódica y sus modos sobre acordes alterados.", icon: "🌑" },
+                { title: "Resoluciones Blues", url: "https://juanmiguel0927.github.io/ResolucionesBlues/", desc: "Diccionario de resoluciones para dominar la tensión-relajación en la progresión de Blues y Jazz.", icon: "🎸" },
+                { title: "Pentatónicas", url: "https://juanmiguel0927.github.io/Pentatonicas/", desc: "Estrategias para usar escalas pentatónicas sobre cambios de acordes sofisticados y fusiones.", icon: "🖐️" },
+                { title: "GMC", url: "https://juanmiguel0927.github.io/GMC/", desc: "Implementación del método Goodrick para navegar por el diapasón usando voicings modales.", icon: "📖" }
             ],
             "Entrenamiento": [
-                { title: "Formar Oído Pro", url: "https://juanmiguel0927.github.io/FormarOidoPro/", desc: "Entrenamiento auditivo enfocado en el reconocimiento funcional de grados e intervalos.", icon: "👂" },
-                { title: "Laboratorio Rítmico", url: "https://juanmiguel0927.github.io/Ritmo/", desc: "Perfecciona la ejecución de polirritmias y patrones complejos de la música del mundo.", icon: "🥁" },
-                { title: "Ritmo y Metro", url: "https://juanmiguel0927.github.io/Ritmo-Metro/", desc: "Metrónomo técnico que permite trabajar subdivisiones y métricas irregulares con precisión.", icon: "⌚" },
-                { title: "Lectura a 1ra Vista", url: "https://juanmiguel0927.github.io/LecturaAPrimeraVista/", desc: "Optimiza la decodificación de partituras en la guitarra mediante visualización estratégica.", icon: "📄" },
-                { title: "Lectura Rápida", url: "https://juanmiguel0927.github.io/LecturaRapida/", desc: "Ejercicios diseñados para aumentar la velocidad de procesamiento de textos e información.", icon: "⚡" }
+                { title: "Formar Oído Pro", url: "https://juanmiguel0927.github.io/FormarOidoPro/", desc: "Ejercicios dinámicos para reconocer grados armónicos y melodías de forma funcional.", icon: "👂" },
+                { title: "Laboratorio Rítmico", url: "https://juanmiguel0927.github.io/Ritmo/", desc: "Perfecciona polirritmias y métricas complejas de la música caribeña y del mundo.", icon: "🥁" },
+                { title: "Ritmo y Metro", url: "https://juanmiguel0927.github.io/Ritmo-Metro/", desc: "Metrónomo avanzado que permite trabajar subdivisiones asimétricas y desplazamientos métricos.", icon: "⌚" },
+                { title: "Lectura a 1ra Vista", url: "https://juanmiguel0927.github.io/LecturaAPrimeraVista/", desc: "Mejora tu lectura musical en la guitarra mediante algoritmos de visualización por bloques.", icon: "📄" },
+                { title: "Caligrafía", url: "https://juanmiguel0927.github.io/Caligrafia/", desc: "Mejora tu escritura cursiva e imprenta con ejercicios de dibujo rítmico aplicados a la grafomotricidad.", icon: "✍️" },
+                { title: "Lectura Rápida", url: "https://juanmiguel0927.github.io/LecturaRapida/", desc: "Entrena tu capacidad cognitiva para procesar información textual y partituras a gran velocidad.", icon: "⚡" }
             ],
             "Gestión & Otros": [
-                { title: "CV Interactivo", url: "https://juanmiguel0927.github.io/CurriculumVitae/", desc: "Portafolio dinámico para presentar proyectos, habilidades y trayectoria profesional.", icon: "💼" },
-                { title: "Bibliografía", url: "https://juanmiguel0927.github.io/Bibliografia/", desc: "Repositorio organizado de libros y tratados esenciales para el estudio musical profundo.", icon: "📚" }
+                { title: "CV Interactivo", url: "https://juanmiguel0927.github.io/CurriculumVitae/", desc: "Presenta tu trayectoria de forma moderna y tecnológica integrando multimedia y logros.", icon: "💼" },
+                { title: "Bibliografía", url: "https://juanmiguel0927.github.io/Bibliografia/", desc: "Acceso curado a tratados de armonía, composición y técnica instrumental para estudio profundo.", icon: "📚" }
             ],
             "Billar": [
-                { title: "Técnica Pool", url: "https://juanmiguel0927.github.io/Tecnica/", desc: "Guía de postura y ejecución técnica para jugadores de billar que buscan consistencia.", icon: "🎱" },
-                { title: "Ejercicios Pool", url: "https://juanmiguel0927.github.io/Pool/", desc: "Diagramas interactivos de entrenamiento para perfeccionar el control de la bola blanca.", icon: "🎯" },
-                { title: "Examen Pool", url: "https://juanmiguel0927.github.io/ExamenPool/", desc: "Sistema de evaluación para medir objetivamente tu progreso en la mesa de billar.", icon: "📝" }
+                { title: "Cálculo de Bandas", url: "https://juanmiguel0927.github.io/BandasPool/", desc: "Generador de sistemas métricos y coordenadas para el cálculo preciso de tiros a bandas en pool.", icon: "📏" },
+                { title: "Técnica Pool", url: "https://juanmiguel0927.github.io/Tecnica/", desc: "Análisis técnico de postura, puente y golpeo para jugadores que buscan precisión científica.", icon: "🎱" },
+                { title: "Ejercicios Pool", url: "https://juanmiguel0927.github.io/Pool/", desc: "Entrenamientos estructurados para dominar el control de la bola blanca y patrones de juego.", icon: "🎯" },
+                { title: "Examen Pool", url: "https://juanmiguel0927.github.io/ExamenPool/", desc: "Evalúa tu nivel competitivo mediante pruebas estandarizadas de habilidad en mesa.", icon: "📝" }
             ],
             "Vida": [
-                { title: "Piloto", url: "https://juanmiguel0927.github.io/Piloto/", desc: "Plataforma de aprendizaje auditivo y acceso a recursos de audiolibros seleccionados.", icon: "✈️" },
-                { title: "Finanzas", url: "https://juanmiguel0927.github.io/Finanzas/", desc: "Gestiona el flujo de caja personal y profesional de forma sencilla y eficiente.", icon: "💰" },
-                { title: "Ahorro Flex", url: "https://juanmiguel0927.github.io/AhorroFlex/", desc: "Planificador inteligente para alcanzar metas financieras mediante el ahorro programado.", icon: "🐷" },
-                { title: "Lunea", url: "https://juanmiguel0927.github.io/Lunea/", desc: "Herramienta de seguimiento biológico para entender y registrar ciclos naturales.", icon: "🌙" },
-                { title: "Asados", url: "https://juanmiguel0927.github.io/Asados/", desc: "Calculadora de insumos y guía técnica de tiempos para el asado perfecto.", icon: "🥩" }
+                { title: "Piloto", url: "https://juanmiguel0927.github.io/Piloto/", desc: "Repositorio de audiolibros y recursos de aprendizaje auditivo para optimizar el tiempo de viaje.", icon: "✈️" },
+                { title: "Finanzas", url: "https://juanmiguel0927.github.io/Finanzas/", desc: "Herramienta de control para gestionar ingresos y egresos de proyectos musicales independientes.", icon: "💰" },
+                { title: "Ahorro Flex", url: "https://juanmiguel0927.github.io/AhorroFlex/", desc: "Planificador dinámico para alcanzar metas financieras mediante el ahorro programado.", icon: "🐷" },
+                { title: "Lunea", url: "https://juanmiguel0927.github.io/Lunea/", desc: "Diario de seguimiento biológico para registrar ciclos naturales y mantener el bienestar.", icon: "🌙" },
+                { title: "Asados", url: "https://juanmiguel0927.github.io/Asados/", desc: "Guía técnica para el parrillero: cálculo de insumos, temperaturas y tiempos de cocción.", icon: "🥩" }
             ]
         };
+
+        // --- PAÍSES ---
+        const countries = [
+            {n:"Colombia",c:"+57",f:"🇨🇴"}, {n:"México",c:"+52",f:"🇲🇽"}, {n:"Argentina",c:"+54",f:"🇦🇷"}, 
+            {n:"España",c:"+34",f:"🇪🇸"}, {n:"Chile",c:"+56",f:"🇨🇱"}, {n:"Perú",c:"+51",f:"🇵🇪"},
+            {n:"EE.UU.",c:"+1",f:"🇺🇸"}, {n:"Ecuador",c:"+593",f:"🇪🇨"}
+        ];
 
         function initRes() {
             const tabs = document.getElementById('resource-tabs');
             tabs.innerHTML = '';
             Object.keys(resData).forEach((c, i) => {
                 const b = document.createElement('button');
-                b.className = `px-6 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all ${i===0 ? 'bg-amber-400 text-slate-900 shadow-lg shadow-amber-400/20' : 'bg-slate-100 text-slate-400'}`;
+                b.className = `px-6 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all ${i===0 ? 'bg-amber-400 text-slate-900 shadow-lg shadow-amber-400/20' : 'bg-slate-100 text-slate-400 hover:text-slate-900'}`;
                 b.textContent = c;
                 b.onclick = (e) => {
-                    document.querySelectorAll('#resource-tabs button').forEach(x => { x.className = 'px-6 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest bg-slate-100 text-slate-400'; });
+                    document.querySelectorAll('#resource-tabs button').forEach(x => { x.className = 'px-6 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest bg-slate-100 text-slate-400 hover:text-slate-900'; });
                     e.currentTarget.className = 'px-6 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest bg-amber-400 text-slate-900 shadow-lg shadow-amber-400/20';
                     renderRes(c);
                 };
@@ -321,8 +352,25 @@
                         <div class="text-4xl mb-6">${x.icon}</div>
                         <h4 class="font-black text-xs uppercase tracking-widest mb-3 text-slate-900">${x.title}</h4>
                         <p class="text-[11px] text-slate-500 mb-8 leading-relaxed">${x.desc}</p>
-                        <a href="${x.url}" target="_blank" class="mt-auto text-[9px] font-black text-amber-600 uppercase tracking-widest border-b border-amber-200 inline-block">Ejecutar App →</a>
+                        <a href="${x.url}" target="_blank" class="mt-auto text-[9px] font-black text-amber-600 uppercase tracking-widest border-b border-amber-200 inline-block hover:text-slate-900 transition-colors">Ejecutar App →</a>
                     </div>`;
+            });
+        }
+
+        function toggleCountryDropdown() { document.getElementById('country-dropdown').classList.toggle('hidden'); }
+        function setCountry(c) {
+            document.getElementById('flag-display').textContent = c.f;
+            document.getElementById('code-display').textContent = c.c;
+            document.getElementById('country-dropdown').classList.add('hidden');
+        }
+        function initCountries() {
+            const list = document.getElementById('country-list');
+            countries.forEach(c => {
+                const d = document.createElement('div');
+                d.className = "p-4 text-xs font-bold hover:bg-slate-50 cursor-pointer flex justify-between border-b border-slate-50";
+                d.innerHTML = `<span>${c.f} ${c.n}</span><span class="text-amber-600">${c.c}</span>`;
+                d.onclick = () => setCountry(c);
+                list.appendChild(d);
             });
         }
 
@@ -336,10 +384,31 @@
 
         function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
 
+        const cForm = document.getElementById('contact-form');
+        cForm.onsubmit = async (e) => {
+            e.preventDefault();
+            const b = document.getElementById('form-btn');
+            const r = document.getElementById('form-result');
+            b.disabled = true; b.textContent = 'Enviando...';
+            try {
+                const resp = await fetch(cForm.action, { method: 'POST', body: new FormData(cForm), headers: { 'Accept': 'application/json' } });
+                if (resp.ok) { 
+                    r.textContent = "¡Solicitud enviada! Te contactaré pronto."; 
+                    r.className = "block text-green-600 font-black uppercase text-[10px] mt-4"; 
+                    cForm.reset(); 
+                } else { throw new Error(); }
+            } catch {
+                r.textContent = "Error al enviar. Intenta de nuevo.";
+                r.className = "block text-red-600 font-black uppercase text-[10px] mt-4";
+            }
+            b.disabled = false; b.textContent = 'Enviar Mensaje Directo';
+            r.classList.remove('hidden');
+        };
+
         document.addEventListener('DOMContentLoaded', () => {
             initRes();
+            initCountries();
         });
     </script>
 </body>
 </html>
-
